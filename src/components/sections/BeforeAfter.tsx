@@ -40,10 +40,9 @@ export default function BeforeAfter() {
                 </div>
 
                 <div
-                    className="mt-14 grid gap-6 lg:grid-cols-[1fr_auto_1fr]"
+                    className="mt-14 grid gap-8 lg:grid-cols-[1fr_auto_1fr] lg:items-center"
                     data-gsap-stagger
                 >
-                    {/* BEFORE */}
                     <div data-gsap-item>
                         <div className="h-full rounded-[2.4rem] border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-soft)]">
                             <div className="mb-5 flex items-center justify-between">
@@ -87,14 +86,12 @@ export default function BeforeAfter() {
                         </div>
                     </div>
 
-                    {/* CENTER */}
-                    <div className="flex items-center justify-center">
+                    <div className="flex justify-center lg:items-center">
                         <div className="rainbow-bg grid h-14 w-14 place-items-center rounded-full shadow-[var(--shadow-glow)] lg:h-16 lg:w-16">
-                            <ArrowRight className="h-6 w-6 text-white" />
+                            <ArrowRight className="h-6 w-6 rotate-90 text-white lg:rotate-0" />
                         </div>
                     </div>
 
-                    {/* AFTER */}
                     <div data-gsap-item>
                         <div className="rainbow-border h-full rounded-[2.4rem]">
                             <div className="h-full rounded-[2.35rem] bg-[var(--surface)] p-5 shadow-[var(--shadow-glow)]">

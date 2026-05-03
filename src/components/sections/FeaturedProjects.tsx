@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
     ArrowUpRight,
     ExternalLink,
@@ -35,65 +34,54 @@ export default function FeaturedProjects() {
                             <article
                                 key={project.title}
                                 data-gsap-item
-                                className="group relative overflow-hidden rounded-[2.8rem] border border-[var(--border)] bg-[var(--surface)]/75 p-3 shadow-[var(--shadow-soft)] backdrop-blur-2xl transition duration-500 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-glow)]"
+                                className="group relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--surface)]/75 p-3 shadow-[var(--shadow-soft)] backdrop-blur-2xl transition duration-500 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-glow)] sm:rounded-[2.8rem]"
                             >
-                                <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
-                                    <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-cyan-400/10 blur-[90px]" />
-                                    <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-fuchsia-500/10 blur-[90px]" />
-                                </div>
-
                                 <div
                                     className={[
-                                        "relative grid gap-0 overflow-hidden rounded-[2.35rem] border border-[var(--border)] bg-[var(--surface-soft)] lg:grid-cols-2",
+                                        "relative grid overflow-hidden rounded-[1.6rem] border border-[var(--border)] bg-[var(--surface-soft)] sm:rounded-[2.35rem] lg:grid-cols-2",
                                         reversed ? "lg:[&>*:first-child]:order-2" : "",
                                     ].join(" ")}
                                 >
-                                    {/* IMAGE SIDE */}
-                                    <div className="relative min-h-[340px] overflow-hidden p-4 sm:p-6 lg:p-8">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/8 via-fuchsia-500/8 to-orange-400/8" />
+                                    <div className="relative overflow-hidden p-3 sm:p-6 lg:p-8">
+                                        <div className="rainbow-border rounded-[1.4rem] sm:rounded-[2rem]">
+                                            <div className="relative overflow-hidden rounded-[1.35rem] bg-[var(--surface)] p-2 sm:rounded-[1.95rem] sm:p-3">
+                                                <ImageReveal
+                                                    src={project.image}
+                                                    alt={project.title}
+                                                    className="aspect-[16/10] rounded-[1.1rem] sm:aspect-video sm:rounded-[1.55rem]"
+                                                    imageClassName="object-cover object-center"
+                                                    sizes="(max-width: 640px) 92vw, (max-width: 1024px) 90vw, 650px"
+                                                />
 
-                                        <div className="relative h-full rounded-[2rem]">
-                                            <div className="rainbow-border rounded-[2rem]">
-                                                <div className="relative overflow-hidden rounded-[1.95rem] bg-[var(--surface)] p-3">
-                                                    <ImageReveal
-                                                        src={project.image}
-                                                        alt={project.title}
-                                                        className="aspect-video rounded-[1.55rem]"
-                                                        imageClassName="object-cover object-center"
-                                                        sizes="(max-width: 1024px) 100vw, 650px"
-                                                    />
+                                                <div className="pointer-events-none absolute inset-2 rounded-[1.1rem] bg-gradient-to-t from-black/50 via-black/5 to-transparent sm:inset-3 sm:rounded-[1.55rem]" />
 
-                                                    <div className="pointer-events-none absolute inset-3 rounded-[1.55rem] bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
+                                                <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/15 bg-black/45 px-3 py-1.5 text-white backdrop-blur-xl sm:left-6 sm:top-6 sm:px-4 sm:py-2">
+                                                    <span className="rainbow-bg h-2 w-2 rounded-full" />
+                                                    <span className="font-code text-[9px] uppercase tracking-[0.18em] text-white/80 sm:text-[10px] sm:tracking-[0.25em]">
+                                                        Project 0{index + 1}
+                                                    </span>
+                                                </div>
 
-                                                    <div className="absolute left-6 top-6 flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-white backdrop-blur-xl">
-                                                        <span className="rainbow-bg h-2 w-2 rounded-full" />
-                                                        <span className="font-code text-[10px] uppercase tracking-[0.25em] text-white/80">
-                                                            Project 0{index + 1}
-                                                        </span>
-                                                    </div>
-
-                                                    <div className="absolute bottom-6 left-6 right-6 rounded-[1.4rem] border border-white/15 bg-black/45 p-4 text-white backdrop-blur-xl">
-                                                        <div className="flex items-center justify-between gap-4">
-                                                            <div>
-                                                                <p className="font-code text-[10px] uppercase tracking-[0.25em] text-white/60">
-                                                                    Frontend Showcase
-                                                                </p>
-                                                                <p className="mt-1 font-heading text-base font-bold">
-                                                                    {project.category}
-                                                                </p>
-                                                            </div>
-
-                                                            <span className="rainbow-bg grid h-11 w-11 shrink-0 place-items-center rounded-2xl shadow-[var(--shadow-glow)]">
-                                                                <ArrowUpRight className="h-5 w-5 text-white" />
-                                                            </span>
+                                                <div className="absolute bottom-4 left-4 right-4 rounded-[1.1rem] border border-white/15 bg-black/50 p-3 text-white backdrop-blur-xl sm:bottom-6 sm:left-6 sm:right-6 sm:rounded-[1.4rem] sm:p-4">
+                                                    <div className="flex items-center justify-between gap-3">
+                                                        <div>
+                                                            <p className="font-code text-[9px] uppercase tracking-[0.18em] text-white/60 sm:text-[10px] sm:tracking-[0.25em]">
+                                                                Frontend Showcase
+                                                            </p>
+                                                            <p className="mt-1 font-heading text-sm font-bold sm:text-base">
+                                                                {project.category}
+                                                            </p>
                                                         </div>
+
+                                                        <span className="rainbow-bg grid h-10 w-10 shrink-0 place-items-center rounded-xl shadow-[var(--shadow-glow)] sm:h-11 sm:w-11 sm:rounded-2xl">
+                                                            <ArrowUpRight className="h-4 w-4 text-white sm:h-5 sm:w-5" />
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    {/* CONTENT SIDE */}
                                     <div className="relative flex flex-col justify-center p-6 sm:p-8 lg:p-10">
                                         <div className="mb-6 flex flex-wrap items-center gap-3">
                                             <span className="rainbow-bg grid h-12 w-12 place-items-center rounded-2xl shadow-[var(--shadow-glow)]">
