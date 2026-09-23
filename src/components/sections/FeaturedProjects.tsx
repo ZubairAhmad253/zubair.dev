@@ -41,7 +41,7 @@ export default function FeaturedProjects() {
                                         reversed ? "lg:[&>*:first-child]:order-2" : "",
                                     ].join(" ")}
                                 >
-                                    <div className="relative overflow-hidden p-3 sm:p-6 lg:p-8">
+                                    <div className="relative flex flex-col justify-center overflow-hidden p-3 sm:p-6 lg:p-8">
                                         <div data-gsap-clip className="rainbow-border rounded-[1.4rem] sm:rounded-[2rem]">
                                             <div className="relative overflow-hidden rounded-[1.35rem] bg-[var(--surface)] p-2 sm:rounded-[1.95rem] sm:p-3">
                                                 <ImageReveal

@@ -54,10 +54,16 @@ export default async function ProjectPage({ params }: Props) {
                         Live Preview
                     </GradientButton>
 
-                    <GradientButton href={project.githubUrl} variant="secondary" icon={false}>
-                        <FaGithub className="h-4 w-4 shrink-0" />
-                        View Code
-                    </GradientButton>
+                    {project.githubUrl ? (
+                        <GradientButton href={project.githubUrl} variant="secondary" icon={false}>
+                            <FaGithub className="h-4 w-4 shrink-0" />
+                            View Code
+                        </GradientButton>
+                    ) : (
+                        <GradientButton href="/contact" variant="secondary">
+                            Start a Similar Project
+                        </GradientButton>
+                    )}
                 </div>
             </PageHero>
 
@@ -174,15 +180,17 @@ export default async function ProjectPage({ params }: Props) {
                                         <ExternalLink className="h-4 w-4 shrink-0" />
                                         Open Live Site
                                     </GradientButton>
-                                    <GradientButton
-                                        href={project.githubUrl}
-                                        variant="secondary"
-                                        icon={false}
-                                        className="w-full"
-                                    >
-                                        <FaGithub className="h-4 w-4 shrink-0" />
-                                        GitHub Repository
-                                    </GradientButton>
+                                    {project.githubUrl && (
+                                        <GradientButton
+                                            href={project.githubUrl}
+                                            variant="secondary"
+                                            icon={false}
+                                            className="w-full"
+                                        >
+                                            <FaGithub className="h-4 w-4 shrink-0" />
+                                            GitHub Repository
+                                        </GradientButton>
+                                    )}
                                 </div>
                             </div>
 

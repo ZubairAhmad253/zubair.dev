@@ -1,4 +1,98 @@
-export const projects = [
+type ProjectData = {
+  slug: string;
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+  problem: string;
+  solution: string;
+  overview: string;
+  features: string[];
+  tech: string[];
+  liveUrl: string;
+  /** Only for open-source projects — client work has no public repository */
+  githubUrl?: string;
+};
+
+export const projects: ProjectData[] = [
+  {
+    slug: "alright-tech",
+    title: "Alright Tech — Software Company Website",
+    category: "Company / Tech Services",
+    image: "/images/projects/alrighttech.webp",
+    description:
+      "A modern website for a software company offering Gen AI, Web 3.0, blockchain, serverless cloud, full-stack and SaaS development — plus tech courses with online enrollment.",
+    problem:
+      "A technology company needed a website that presents a wide range of advanced services and training in a way that feels credible and easy to explore.",
+    solution:
+      "Built a dark, futuristic site with an animated network-globe hero, clear service and workflow sections, proof points like awards and achievements, and a simple path to enroll or get in touch.",
+    overview:
+      "Alright Tech helps companies of all sizes with digital transformation by combining engineering, design thinking and modern technology. The website showcases their services, workflow, certifications and courses, and turns visitors into leads and students.",
+    features: [
+      "Animated network-globe hero section",
+      "Services and 'What we offer' sections",
+      "Step-by-step work flow",
+      "Awards, certifications and achievements",
+      "Courses with an enroll call to action",
+      "Technology highlights and testimonials",
+      "Contact form and WhatsApp chat button",
+      "Responsive layout for every screen size",
+    ],
+    tech: ["Next.js", "React", "JavaScript", "Responsive UI"],
+    liveUrl: "https://alrighttech.com",
+  },
+  {
+    slug: "badrgo",
+    title: "BadrGo — Ride-Hailing Platform Website",
+    category: "Transport / Ride-Hailing",
+    image: "/images/projects/badrgo.webp",
+    description:
+      "The bilingual (English / Arabic) website for BadrGo, a ride-hailing app in Qatar — covering rides, hourly and monthly bookings, airport pick-ups, driver sign-up and support.",
+    problem:
+      "A ride-hailing brand needed one clear website that explains its booking options to riders, recruits driver partners, and serves both English and Arabic speakers.",
+    solution:
+      "Built a bilingual site with app download calls to action, feature sections for every booking type, a dedicated airport pick-up section, FAQs, and pages for drivers, support and careers.",
+    overview:
+      "BadrGo is more than a taxi app — it is a transport companion for Qatar. The website introduces the app, explains features like booking per hour, per month, in advance and with extra stops, promotes pick-ups from Hamad International Airport, and helps drivers join as partners.",
+    features: [
+      "Bilingual English and Arabic (right-to-left) support",
+      "App download calls to action",
+      "Book per hour, per month and in advance",
+      "Add stops to a trip",
+      "Airport pick-ups from Hamad International Airport",
+      "Driver partner sign-up",
+      "Support, careers and FAQ sections",
+      "'Why BadrGo' trust section: licensed, safe, transparent",
+    ],
+    tech: ["WordPress", "Elementor", "PHP", "Bilingual EN / AR"],
+    liveUrl: "https://badrgo.com/qa/",
+  },
+  {
+    slug: "bloom-cypher",
+    title: "Bloom Cypher — IT Services & Training Platform",
+    category: "IT Services / EdTech",
+    image: "/images/projects/bloomcypher.webp",
+    description:
+      "A website for Bloom Cypher, an IT company that builds apps, websites and AI tools for clients worldwide — and runs practical tech courses and internships in Rawalpindi.",
+    problem:
+      "The company needed to speak to three audiences at once — businesses looking for a tech partner, students looking for courses, and people looking for jobs.",
+    solution:
+      "Built a clean, light site with clear service and industry sections, a client work showcase, a courses area, a careers section with CV submission, and a simple explanation of how projects work.",
+    overview:
+      "Bloom Cypher delivers mobile apps, web platforms, AI tools and dashboards, and teaches what it knows through IT and AI courses. The website brings services, industries, client work, training and careers together in one place.",
+    features: [
+      "Services: mobile apps, web, UI/UX and AI development",
+      "Industry pages: food delivery, healthcare, travel, e-learning and more",
+      "Recent client work showcase",
+      "Tech courses with a course-interest survey",
+      "Careers and internships with CV submission",
+      "'How a project works' process section",
+      "Company stats and trust signals",
+      "Fast, responsive Next.js build",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+    liveUrl: "https://www.bloomcypher.com",
+  },
   {
     slug: "nexora",
     title: "Nexora — Premium Portfolio Template",
@@ -26,59 +120,9 @@ export const projects = [
     liveUrl: "https://nexora-portfolio-template.vercel.app",
     githubUrl: "https://github.com/ZubairAhmad253/nexora-portfolio-template",
   },
-  {
-    slug: "buildnox",
-    title: "Buildnox — Construction Company Website",
-    category: "Business / Corporate",
-    image: "/images/projects/buildnox.webp",
-    description:
-      "A bold, modern website for a construction company with strong typography, service highlights, project showcases, and trust-building sections.",
-    problem:
-      "A construction business needs to look established and trustworthy the moment a visitor lands.",
-    solution:
-      "Designed a high-impact hero, clear service and project sections, a why-choose-us block, testimonials, and smooth scroll animations across a fully responsive layout.",
-    overview:
-      "Buildnox is a corporate website for a construction company. The goal was a confident first impression: large outlined typography, strong imagery, and a clear path from services to projects to contact.",
-    features: [
-      "High-impact hero with outlined display typography",
-      "Services and project showcase sections",
-      "Why-choose-us and company strength blocks",
-      "Client testimonials",
-      "Scroll animations with AOS",
-      "Responsive layout for mobile, tablet, and desktop",
-    ],
-    tech: ["HTML", "CSS", "JavaScript", "AOS Animations"],
-    liveUrl: "https://buildnox.vercel.app",
-    githubUrl: "https://github.com/ZubairAhmad253/Buildnox",
-  },
-  {
-    slug: "nexus-aquarium",
-    title: "Nexus Aquarium — Attraction Website",
-    category: "Tourism / Entertainment",
-    image: "/images/projects/nexus-aquarium.webp",
-    description:
-      "A multi-page React website for an aquarium attraction with an image gallery, animal information, visitor timings, events, and an online booking page.",
-    problem:
-      "Visitors needed one place to explore the aquarium, check timings, and book tickets online.",
-    solution:
-      "Built a React + Vite app with client-side routing, an immersive underwater theme, a gallery carousel, and a dedicated booking flow.",
-    overview:
-      "Nexus Aquarium is a React single-page application for a public attraction. It brings together everything a visitor needs — what to see, when to come, and how to book — inside an immersive underwater design.",
-    features: [
-      "Multi-page app with React Router",
-      "Hero image carousel and gallery",
-      "About Animals information pages",
-      "Visitor timings and events",
-      "Online booking page",
-      "Contact page",
-    ],
-    tech: ["React", "Vite", "React Router", "Tailwind CSS"],
-    liveUrl: "https://nexus-aquarium.vercel.app",
-    githubUrl: "https://github.com/ZubairAhmad253/nexus-aquarium",
-  },
 ];
 
-export type Project = (typeof projects)[number];
+export type Project = ProjectData;
 
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);

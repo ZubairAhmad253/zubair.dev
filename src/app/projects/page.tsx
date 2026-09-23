@@ -88,7 +88,7 @@ export default function ProjectsPage() {
                                             View Case Study
                                         </GradientButton>
 
-                                        <div className="grid grid-cols-2 gap-3">
+                                        <div className={project.githubUrl ? "grid grid-cols-2 gap-3" : "grid gap-3"}>
                                             <GradientButton
                                                 href={project.liveUrl}
                                                 variant="secondary"
@@ -96,18 +96,20 @@ export default function ProjectsPage() {
                                                 className="w-full min-w-0 !px-4"
                                             >
                                                 <ExternalLink className="h-4 w-4 shrink-0" />
-                                                Live
+                                                {project.githubUrl ? "Live" : "Live Preview"}
                                             </GradientButton>
 
-                                            <GradientButton
-                                                href={project.githubUrl}
-                                                variant="secondary"
-                                                icon={false}
-                                                className="w-full min-w-0 !px-4"
-                                            >
-                                                <FaGithub className="h-4 w-4 shrink-0" />
-                                                Code
-                                            </GradientButton>
+                                            {project.githubUrl && (
+                                                <GradientButton
+                                                    href={project.githubUrl}
+                                                    variant="secondary"
+                                                    icon={false}
+                                                    className="w-full min-w-0 !px-4"
+                                                >
+                                                    <FaGithub className="h-4 w-4 shrink-0" />
+                                                    Code
+                                                </GradientButton>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

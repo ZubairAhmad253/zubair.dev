@@ -89,7 +89,7 @@ export const caseStudies = [
     ],
     deliverables: ["Redesigned layout", "Mobile-first responsive build", "Improved CTAs", "Faster navigation"],
     tech: ["HTML", "CSS", "JavaScript", "Responsive UI"],
-    relatedProject: "buildnox",
+    relatedProject: null,
   },
 ];
 
