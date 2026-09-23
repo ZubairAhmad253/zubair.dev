@@ -61,7 +61,7 @@ export default async function ServicePage({ params }: Props) {
                 </div>
             </PageHero>
 
-            <section className="py-12">
+            <section className="py-8 sm:py-12">
                 <Container>
                     <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.2fr_0.8fr]">
                         <div className="rainbow-border rounded-[2.4rem]" data-gsap-reveal>
@@ -153,7 +153,7 @@ export default async function ServicePage({ params }: Props) {
                 </Container>
             </section>
 
-            <section className="py-12">
+            <section className="py-8 sm:py-12">
                 <Container>
                     <div className="mx-auto max-w-6xl">
                         <p className="text-center font-code text-xs uppercase tracking-[0.35em] text-[var(--muted)]">
@@ -180,7 +180,7 @@ export default async function ServicePage({ params }: Props) {
                 </Container>
             </section>
 
-            <section className="pb-24 pt-12">
+            <section className="pb-16 pt-8 sm:pb-24 sm:pt-12">
                 <Container>
                     <div className="mx-auto max-w-6xl">
                         <p className="text-center font-code text-xs uppercase tracking-[0.35em] text-[var(--muted)]">

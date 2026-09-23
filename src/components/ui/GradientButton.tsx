@@ -80,8 +80,14 @@ export default function GradientButton({
         );
     }
 
+    // The wrapper must carry width classes (e.g. w-full, sm:w-auto) so the link can stretch
+    const widthClasses = (className ?? "")
+        .split(" ")
+        .filter((token) => /^([a-z]+:)*w-/.test(token))
+        .join(" ");
+
     return (
-        <motion.div whileTap={{ scale: 0.96 }} className="inline-flex">
+        <motion.div whileTap={{ scale: 0.96 }} className={cn("inline-flex", widthClasses)}>
             <Link href={href} className={classes}>
                 {content}
             </Link>

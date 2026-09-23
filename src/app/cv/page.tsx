@@ -62,7 +62,7 @@ export default function CvPage() {
                 </PageHero>
             </div>
 
-            <section className="pb-24 print:p-0">
+            <section className="pb-16 sm:pb-24 print:p-0">
                 <Container className="print:max-w-none print:px-0">
                     <article className="cv-sheet mx-auto max-w-4xl rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-soft)] sm:p-10 print:rounded-none print:border-0 print:p-0 print:shadow-none">
                         <header className="flex flex-col gap-6 border-b border-[var(--border)] pb-8 sm:flex-row sm:items-start sm:justify-between">

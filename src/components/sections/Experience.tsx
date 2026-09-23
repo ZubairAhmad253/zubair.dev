@@ -7,7 +7,7 @@ import { experience } from "@/data/experience";
 
 export default function Experience() {
     return (
-        <section id="experience" className="py-24">
+        <section id="experience" className="py-16 sm:py-24">
             <Container>
                 <div data-gsap-reveal>
                     <SectionHeading

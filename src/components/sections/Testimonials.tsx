@@ -25,7 +25,7 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section id="testimonials" className="py-24">
+        <section id="testimonials" className="py-16 sm:py-24">
             <Container>
                 {/* Heading */}
                 <div data-gsap-reveal>
@@ -38,7 +38,7 @@ export default function Testimonials() {
 
                 {/* Grid */}
                 <div
-                    className="mt-14 grid gap-6 lg:grid-cols-3"
+                    className="mt-10 grid sm:mt-14 gap-6 lg:grid-cols-3"
                     data-gsap-stagger
                 >
                     {testimonials.map((item) => (

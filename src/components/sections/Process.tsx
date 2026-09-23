@@ -52,7 +52,7 @@ const steps = [
 
 export default function Process() {
     return (
-        <section id="process" className="py-24">
+        <section id="process" className="py-16 sm:py-24">
             <Container>
                 <div data-gsap-reveal>
                     <SectionHeading
@@ -62,7 +62,7 @@ export default function Process() {
                     />
                 </div>
 
-                <div className="mt-16 grid gap-5" data-gsap-stagger>
+                <div className="mt-10 grid sm:mt-16 gap-5" data-gsap-stagger>
                     {steps.map((step) => {
                         const Icon = step.icon;
 

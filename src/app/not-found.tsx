@@ -6,7 +6,7 @@ import GradientButton from "@/components/ui/GradientButton";
 export default function NotFound() {
     return (
         <PageShell>
-            <section className="py-32">
+            <section className="py-20 sm:py-32">
                 <Container>
                     <div className="rainbow-border mx-auto max-w-3xl rounded-[2.5rem]">
                         <div className="relative overflow-hidden rounded-[2.45rem] bg-[var(--surface)] px-6 py-16 text-center shadow-[var(--shadow-glow)] sm:px-12">

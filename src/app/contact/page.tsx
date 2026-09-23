@@ -52,7 +52,7 @@ export default function ContactPage() {
                 description="Tell me what you need — a website, a landing page, or a full stack web app — and I will get back to you with next steps."
             />
 
-            <section className="pb-24">
+            <section className="pb-16 sm:pb-24">
                 <Container>
                     <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.3fr_0.7fr]">
                         <div className="rainbow-border rounded-[2.4rem]" data-gsap-reveal>

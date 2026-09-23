@@ -6,7 +6,7 @@ import GradientButton from "@/components/ui/GradientButton";
 
 export default function FinalCTA() {
     return (
-        <section id="contact" className="px-4 py-24">
+        <section id="contact" className="py-16 sm:px-4 sm:py-24">
             <Container>
                 <div className="rounded-[2.5rem] rainbow-border" data-gsap-reveal>
                     <div className="relative overflow-hidden rounded-[2.5rem] bg-[var(--surface)] px-6 py-16 text-center shadow-[var(--shadow-glow)] sm:px-10 lg:px-16">

@@ -57,8 +57,8 @@ export default function Footer() {
     return (
         <footer className="border-t border-[var(--border)] bg-[var(--surface)]/70 py-12 backdrop-blur-xl print:hidden">
             <Container>
-                <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
-                    <div>
+                <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
+                    <div className="col-span-2 lg:col-span-1">
                         <Link href="/" className="inline-flex items-center gap-3">
                             <span className="rainbow-bg grid h-12 w-12 place-items-center rounded-2xl shadow-[var(--shadow-glow)]">
                                 <span className="font-heading text-xl font-black text-white">
@@ -135,7 +135,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="col-span-2 lg:col-span-1">
                         <h3 className="font-code text-xs font-bold uppercase tracking-[0.3em] text-[var(--text)]">
                             Contact
                         </h3>

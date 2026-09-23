@@ -20,7 +20,7 @@ export default function PageHero({
     children,
 }: PageHeroProps) {
     return (
-        <section className="relative overflow-hidden pb-12 pt-32 sm:pt-36">
+        <section className="relative overflow-hidden pb-10 pt-20 sm:pb-12 sm:pt-36">
             <Container>
                 <div className="mx-auto max-w-4xl text-center">
                     <Link
@@ -35,7 +35,7 @@ export default function PageHero({
                         {eyebrow}
                     </p>
 
-                    <h1 className="font-heading text-4xl font-black tracking-tight text-[var(--text)] sm:text-5xl lg:text-6xl">
+                    <h1 className="font-heading text-[2.1rem] font-black leading-tight tracking-tight text-[var(--text)] sm:text-5xl lg:text-6xl">
                         {title}
                     </h1>
 

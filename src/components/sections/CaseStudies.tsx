@@ -10,7 +10,7 @@ import { caseStudies } from "@/data/caseStudies";
 
 export default function CaseStudies() {
     return (
-        <section id="case-studies" className="py-24">
+        <section id="case-studies" className="py-16 sm:py-24">
             <Container>
                 <div data-gsap-reveal>
                     <SectionHeading
@@ -20,7 +20,7 @@ export default function CaseStudies() {
                     />
                 </div>
 
-                <div className="mt-14 grid gap-6 lg:grid-cols-3" data-gsap-stagger>
+                <div className="mt-10 grid sm:mt-14 gap-6 lg:grid-cols-3" data-gsap-stagger>
                     {caseStudies.map((item, index) => {
                         const Icon = item.icon;
 

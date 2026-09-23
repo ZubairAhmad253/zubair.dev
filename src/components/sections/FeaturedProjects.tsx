@@ -16,7 +16,7 @@ import { projects } from "@/data/projects";
 
 export default function FeaturedProjects() {
     return (
-        <section id="projects" className="py-24">
+        <section id="projects" className="py-16 sm:py-24">
             <Container>
                 <div data-gsap-reveal>
                     <SectionHeading
@@ -26,7 +26,7 @@ export default function FeaturedProjects() {
                     />
                 </div>
 
-                <div className="mt-16 grid gap-10" data-gsap-stagger>
+                <div className="mt-10 grid sm:mt-16 gap-10" data-gsap-stagger>
                     {projects.map((project, index) => {
                         const reversed = index % 2 !== 0;
 
@@ -110,7 +110,7 @@ export default function FeaturedProjects() {
                                             {project.description}
                                         </p>
 
-                                        <div className="mt-8 grid gap-4">
+                                        <div className="mt-8 hidden gap-4 sm:grid">
                                             <div className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-soft)]">
                                                 <div className="mb-3 flex items-center gap-2">
                                                     <Target className="h-4 w-4 text-cyan-400" />

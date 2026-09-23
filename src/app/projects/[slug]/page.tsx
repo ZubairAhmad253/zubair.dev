@@ -78,7 +78,7 @@ export default async function ProjectPage({ params }: Props) {
                 </Container>
             </section>
 
-            <section className="py-12">
+            <section className="py-8 sm:py-12">
                 <Container>
                     <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.2fr_0.8fr]">
                         <div className="grid gap-6" data-gsap-stagger>
@@ -206,7 +206,7 @@ export default async function ProjectPage({ params }: Props) {
                 </Container>
             </section>
 
-            <section className="pb-24 pt-8">
+            <section className="pb-16 pt-4 sm:pb-24 sm:pt-8">
                 <Container>
                     <Link
                         href={`/projects/${next.slug}`}

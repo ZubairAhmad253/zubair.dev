@@ -28,7 +28,7 @@ export default function ProjectsPage() {
                 description="A collection of websites and web apps I have designed and built — each one focused on clean UI, responsive layouts, and a clear goal."
             />
 
-            <section className="pb-24">
+            <section className="pb-16 sm:pb-24">
                 <Container>
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3" data-gsap-stagger>
                         {projects.map((project, index) => (

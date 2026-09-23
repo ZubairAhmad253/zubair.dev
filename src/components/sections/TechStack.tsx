@@ -40,7 +40,7 @@ const tools = [
 
 export default function TechStack() {
     return (
-        <section id="tech-stack" className="py-24">
+        <section id="tech-stack" className="py-16 sm:py-24">
             <Container>
                 <div data-gsap-reveal>
                     <SectionHeading
@@ -51,7 +51,7 @@ export default function TechStack() {
                 </div>
 
                 <div
-                    className="mt-14 grid grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-4 lg:grid-cols-8"
+                    className="mt-10 grid sm:mt-14 grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-4 lg:grid-cols-8"
                     data-gsap-stagger
                 >
                     {tools.map((tool) => {

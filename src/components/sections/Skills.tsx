@@ -52,7 +52,7 @@ const marqueeSkills = [
 
 export default function Skills() {
     return (
-        <section id="skills" className="overflow-hidden py-24">
+        <section id="skills" className="overflow-hidden py-16 sm:py-24">
             <Container>
                 <div data-gsap-reveal>
                     <SectionHeading
@@ -63,7 +63,7 @@ export default function Skills() {
                 </div>
 
                 <div
-                    className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4"
+                    className="mt-10 grid sm:mt-14 gap-6 md:grid-cols-2 lg:grid-cols-4"
                     data-gsap-stagger
                 >
                     {skillGroups.map((group, index) => {
@@ -71,18 +71,22 @@ export default function Skills() {
 
                         return (
                             <div key={group.title} data-gsap-item>
-                                <GlassCard className="h-full rounded-[2rem] p-6">
-                                    <div className="mb-6 flex items-center justify-between">
-                                        <div className="rainbow-bg grid h-12 w-12 place-items-center rounded-2xl shadow-[var(--shadow-glow)]">
+                                <GlassCard className="h-full rounded-[2rem] p-5 sm:p-6">
+                                    <div className="flex items-center gap-4 sm:mb-6 sm:justify-between">
+                                        <div className="rainbow-bg grid h-11 w-11 shrink-0 place-items-center rounded-2xl shadow-[var(--shadow-glow)] sm:h-12 sm:w-12">
                                             <Icon className="h-5 w-5 text-white" />
                                         </div>
 
-                                        <span className="font-code text-xs text-[var(--muted)]">
+                                        <h3 className="font-heading text-lg font-bold text-[var(--text)] sm:hidden">
+                                            {group.title}
+                                        </h3>
+
+                                        <span className="ml-auto font-code text-xs text-[var(--muted)]">
                                             0{index + 1}
                                         </span>
                                     </div>
 
-                                    <h3 className="font-heading text-lg font-bold text-[var(--text)]">
+                                    <h3 className="hidden font-heading text-lg font-bold text-[var(--text)] sm:block">
                                         {group.title}
                                     </h3>
 

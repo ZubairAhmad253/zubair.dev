@@ -2,20 +2,44 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import {
+    ArrowUpRight,
+    BriefcaseBusiness,
+    Code2,
+    FileText,
+    FolderOpen,
+    House,
+    Layers3,
+    Mail,
+    Menu,
+    UserRound,
+    X,
+} from "lucide-react";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/ui/Container";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import GradientButton from "@/components/ui/GradientButton";
 
 const navLinks = [
-    { label: "Home", href: "/#home" },
-    { label: "About", href: "/#about" },
-    { label: "Experience", href: "/#experience" },
-    { label: "Services", href: "/#services" },
-    { label: "Projects", href: "/#projects" },
-    { label: "Skills", href: "/#skills" },
-    { label: "Contact", href: "/#contact" },
+    { label: "Home", href: "/#home", icon: House },
+    { label: "About", href: "/#about", icon: UserRound },
+    { label: "Experience", href: "/#experience", icon: BriefcaseBusiness },
+    { label: "Services", href: "/#services", icon: Layers3 },
+    { label: "Projects", href: "/#projects", icon: FolderOpen },
+    { label: "Skills", href: "/#skills", icon: Code2 },
+    { label: "Contact", href: "/#contact", icon: Mail },
+];
+
+const quickLinks = [
+    { label: "All Projects", href: "/projects", icon: FolderOpen },
+    { label: "My CV", href: "/cv", icon: FileText },
+];
+
+const socials = [
+    { label: "GitHub", href: "https://github.com/ZubairAhmad253", icon: FaGithub },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/zubair-ahmad-120294201/", icon: FaLinkedin },
+    { label: "WhatsApp", href: "https://wa.me/97470261822", icon: FaWhatsapp },
 ];
 
 export default function Navbar() {
@@ -30,8 +54,42 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
+    // Lock page scroll and allow Escape to close while the mobile menu is open
+    useEffect(() => {
+        if (!open) return;
+
+        const onKey = (event: KeyboardEvent) => {
+            if (event.key === "Escape") setOpen(false);
+        };
+
+        document.body.style.overflow = "hidden";
+        window.addEventListener("keydown", onKey);
+
+        return () => {
+            document.body.style.overflow = "";
+            window.removeEventListener("keydown", onKey);
+        };
+    }, [open]);
+
+    const close = () => setOpen(false);
+
     return (
-        <header className="sticky top-0 z-[80] w-full px-3 pt-4 sm:px-5 print:hidden">
+        <header className="sticky top-0 z-[80] w-full pt-3 sm:px-5 sm:pt-4 print:hidden">
+            <AnimatePresence>
+                {open && (
+                    <motion.button
+                        type="button"
+                        aria-label="Close menu"
+                        onClick={close}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed inset-0 -z-10 bg-black/40 backdrop-blur-sm lg:hidden"
+                    />
+                )}
+            </AnimatePresence>
+
             <Container>
                 <motion.nav
                     initial={{ opacity: 0, y: -18 }}
@@ -42,23 +100,19 @@ export default function Navbar() {
                         scrolled ? "shadow-[var(--shadow-glow)]" : "shadow-none",
                     ].join(" ")}
                 >
-                    <div className="flex items-center justify-between rounded-full border border-[var(--border)] bg-[var(--surface)]/90 px-4 py-3 backdrop-blur-2xl">
-                        <Link
-                            href="/"
-                            onClick={() => setOpen(false)}
-                            className="flex items-center gap-3"
-                        >
-                            <span className="rainbow-bg grid h-10 w-10 place-items-center rounded-full shadow-[var(--shadow-glow)]">
+                    <div className="flex items-center justify-between rounded-full border border-[var(--border)] bg-[var(--surface)]/90 py-2.5 pl-2.5 pr-2.5 backdrop-blur-2xl sm:px-4 sm:py-3">
+                        <Link href="/" onClick={close} className="flex min-w-0 items-center gap-3">
+                            <span className="rainbow-bg grid h-10 w-10 shrink-0 place-items-center rounded-full shadow-[var(--shadow-glow)]">
                                 <span className="font-heading text-lg font-black text-white">
                                     Z
                                 </span>
                             </span>
 
-                            <span className="hidden leading-tight sm:block">
-                                <span className="block font-heading text-sm font-bold text-[var(--text)]">
+                            <span className="min-w-0 leading-tight">
+                                <span className="block truncate font-heading text-sm font-bold text-[var(--text)]">
                                     Zubair Ahmad
                                 </span>
-                                <span className="block text-xs text-[var(--muted)]">
+                                <span className="block truncate text-xs text-[var(--muted)]">
                                     Full Stack Developer
                                 </span>
                             </span>
@@ -76,7 +130,7 @@ export default function Navbar() {
                             ))}
                         </div>
 
-                        <div className="flex items-center gap-2">
+                        <div className="flex shrink-0 items-center gap-2">
                             <ThemeToggle />
 
                             <div className="hidden sm:block">
@@ -90,6 +144,7 @@ export default function Navbar() {
                                 onClick={() => setOpen((prev) => !prev)}
                                 className="grid h-11 w-11 place-items-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-[var(--shadow-soft)] lg:hidden"
                                 aria-label="Toggle menu"
+                                aria-expanded={open}
                             >
                                 {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                             </motion.button>
@@ -104,26 +159,71 @@ export default function Navbar() {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -14, scale: 0.98 }}
                             transition={{ duration: 0.22 }}
-                            className="mt-3 overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--surface)]/95 p-3 shadow-[var(--shadow-soft)] backdrop-blur-2xl lg:hidden"
+                            className="mt-3 max-h-[calc(100dvh-6.5rem)] overflow-y-auto rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-3 shadow-[var(--shadow-glow)] lg:hidden"
                         >
-                            <div className="grid gap-1">
-                                {navLinks.map((link) => (
-                                    <Link
-                                        key={link.href}
-                                        href={link.href}
-                                        onClick={() => setOpen(false)}
-                                        className="rounded-2xl px-4 py-3 text-sm font-medium text-[var(--muted)] transition hover:bg-[var(--surface-soft)] hover:text-[var(--text)]"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                ))}
+                            <div className="grid grid-cols-2 gap-2">
+                                {navLinks.map((link) => {
+                                    const Icon = link.icon;
 
-                                <div className="pt-2 sm:hidden">
-                                    <GradientButton
-                                        href="/contact"
-                                        className="w-full"
-                                        icon={false}
-                                    >
+                                    return (
+                                        <Link
+                                            key={link.href}
+                                            href={link.href}
+                                            onClick={close}
+                                            className="group flex items-center gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-soft)] px-3 py-3 text-sm font-semibold text-[var(--text)] transition active:scale-[0.98]"
+                                        >
+                                            <span className="rainbow-bg grid h-8 w-8 shrink-0 place-items-center rounded-xl">
+                                                <Icon className="h-4 w-4 text-white" />
+                                            </span>
+                                            {link.label}
+                                        </Link>
+                                    );
+                                })}
+                            </div>
+
+                            <div className="mt-2 grid gap-2">
+                                {quickLinks.map((link) => {
+                                    const Icon = link.icon;
+
+                                    return (
+                                        <Link
+                                            key={link.href}
+                                            href={link.href}
+                                            onClick={close}
+                                            className="flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-medium text-[var(--muted)] transition hover:bg-[var(--surface-soft)] hover:text-[var(--text)]"
+                                        >
+                                            <span className="flex items-center gap-3">
+                                                <Icon className="h-4 w-4" />
+                                                {link.label}
+                                            </span>
+                                            <ArrowUpRight className="h-4 w-4" />
+                                        </Link>
+                                    );
+                                })}
+                            </div>
+
+                            <div className="mt-2 flex items-center justify-between gap-3 border-t border-[var(--border)] px-1 pt-3">
+                                <div className="flex gap-2">
+                                    {socials.map((social) => {
+                                        const Icon = social.icon;
+
+                                        return (
+                                            <a
+                                                key={social.label}
+                                                href={social.href}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                aria-label={social.label}
+                                                className="grid h-11 w-11 place-items-center rounded-2xl border border-[var(--border)] bg-[var(--surface-soft)] text-[var(--muted)] transition hover:text-[var(--text)]"
+                                            >
+                                                <Icon className="h-5 w-5" />
+                                            </a>
+                                        );
+                                    })}
+                                </div>
+
+                                <div className="flex-1">
+                                    <GradientButton href="/contact" className="w-full min-w-0" icon={false}>
                                         Hire Me
                                     </GradientButton>
                                 </div>

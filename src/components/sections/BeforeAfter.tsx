@@ -29,7 +29,7 @@ const afterPoints = [
 
 export default function BeforeAfter() {
     return (
-        <section className="py-24">
+        <section className="py-16 sm:py-24">
             <Container>
                 <div data-gsap-reveal>
                     <SectionHeading
@@ -40,7 +40,7 @@ export default function BeforeAfter() {
                 </div>
 
                 <div
-                    className="mt-14 grid gap-8 lg:grid-cols-[1fr_auto_1fr] lg:items-center"
+                    className="mt-10 grid sm:mt-14 gap-8 lg:grid-cols-[1fr_auto_1fr] lg:items-center"
                     data-gsap-stagger
                 >
                     <div data-gsap-item>

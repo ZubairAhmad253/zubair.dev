@@ -47,7 +47,7 @@ const reasons = [
 
 export default function WhyHireMe() {
     return (
-        <section className="py-24">
+        <section className="py-16 sm:py-24">
             <Container>
                 <div data-gsap-reveal>
                     <SectionHeading
@@ -58,7 +58,7 @@ export default function WhyHireMe() {
                 </div>
 
                 <div
-                    className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+                    className="mt-10 grid sm:mt-14 gap-6 sm:grid-cols-2 lg:grid-cols-3"
                     data-gsap-stagger
                 >
                     {reasons.map((reason) => {
@@ -66,16 +66,20 @@ export default function WhyHireMe() {
 
                         return (
                             <div key={reason.title} data-gsap-item>
-                                <GlassCard className="group h-full rounded-[2rem] p-6">
-                                    <div className="mb-6 flex items-center justify-between">
-                                        <div className="rainbow-bg grid h-12 w-12 place-items-center rounded-2xl shadow-[var(--shadow-glow)]">
+                                <GlassCard className="group h-full rounded-[2rem] p-5 sm:p-6">
+                                    <div className="flex items-center gap-4 sm:mb-6 sm:justify-between">
+                                        <div className="rainbow-bg grid h-11 w-11 shrink-0 place-items-center rounded-2xl shadow-[var(--shadow-glow)] sm:h-12 sm:w-12">
                                             <Icon className="h-5 w-5 text-white" />
                                         </div>
 
-                                        <span className="h-px w-16 bg-gradient-to-r from-transparent via-[var(--border-strong)] to-transparent transition group-hover:w-24" />
+                                        <h3 className="font-heading text-lg font-bold text-[var(--text)] sm:hidden">
+                                            {reason.title}
+                                        </h3>
+
+                                        <span className="hidden h-px w-16 bg-gradient-to-r from-transparent via-[var(--border-strong)] to-transparent transition group-hover:w-24 sm:block" />
                                     </div>
 
-                                    <h3 className="font-heading text-lg font-bold text-[var(--text)]">
+                                    <h3 className="hidden font-heading text-lg font-bold text-[var(--text)] sm:block">
                                         {reason.title}
                                     </h3>
 

@@ -79,10 +79,10 @@ export default function Hero() {
         <section
             id="home"
             ref={heroRef}
-            className="relative min-h-screen overflow-hidden pt-32 sm:pt-36 lg:pt-40"
+            className="relative overflow-hidden pt-20 sm:pt-36 lg:min-h-screen lg:pt-40"
         >
             <Container>
-                <div className="grid min-h-[calc(100vh-9rem)] items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+                <div className="grid items-center gap-12 lg:min-h-[calc(100vh-9rem)] lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
                     <div className="text-center lg:text-left">
                         <div
                             data-hero-item
@@ -121,12 +121,12 @@ export default function Hero() {
 
                         <div
                             data-hero-item
-                            className="mt-10 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
+                            className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:mt-10 sm:gap-3 lg:justify-start"
                         >
                             {techStack.map((item) => (
                                 <span
                                     key={item}
-                                    className="rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 font-code text-xs text-[var(--muted)] shadow-[var(--shadow-soft)]"
+                                    className="rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 py-1.5 font-code text-[11px] text-[var(--muted)] shadow-[var(--shadow-soft)] sm:px-4 sm:py-2 sm:text-xs"
                                 >
                                     {item}
                                 </span>
@@ -165,8 +165,8 @@ export default function Hero() {
                             transition={{ duration: 0.3 }}
                             className="rainbow-border rounded-[2.5rem]"
                         >
-                            <div className="glass rounded-[2.45rem] p-5">
-                                <div className="rounded-[2rem] border border-[var(--border)] bg-[var(--surface-soft)] p-5">
+                            <div className="glass rounded-[2.45rem] p-3 sm:p-5">
+                                <div className="rounded-[2rem] border border-[var(--border)] bg-[var(--surface-soft)] p-4 sm:p-5">
                                     <div className="mb-5 flex items-center justify-between border-b border-[var(--border)] pb-4">
                                         <div className="flex gap-2">
                                             <span className="h-3 w-3 rounded-full bg-red-400" />
@@ -180,12 +180,12 @@ export default function Hero() {
                                     </div>
 
                                     <div className="rainbow-border rounded-[1.7rem]">
-                                        <div className="rounded-[1.65rem] bg-[var(--surface)] p-5">
+                                        <div className="rounded-[1.65rem] bg-[var(--surface)] p-4 sm:p-5">
                                             <p className="font-code text-xs uppercase tracking-[0.28em] text-[var(--muted)]">
                                                 Developer Profile
                                             </p>
 
-                                            <h3 className="mt-4 font-heading text-3xl font-black text-[var(--text)]">
+                                            <h3 className="mt-4 font-heading text-2xl font-black text-[var(--text)] sm:text-3xl">
                                                 Clean UI.
                                                 <br />
                                                 Smooth Motion.
@@ -193,16 +193,16 @@ export default function Hero() {
                                                 Premium Build.
                                             </h3>
 
-                                            <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                                            <div className="mt-5 grid grid-cols-3 gap-2 sm:mt-6 sm:gap-3">
                                                 {stats.map((stat) => (
                                                     <div
                                                         key={stat.label}
-                                                        className="rounded-2xl border border-[var(--border)] bg-[var(--surface-soft)] p-4"
+                                                        className="rounded-2xl border border-[var(--border)] bg-[var(--surface-soft)] p-3 sm:p-4"
                                                     >
-                                                        <p className="font-code text-[10px] uppercase tracking-[0.2em] text-[var(--muted)]">
+                                                        <p className="font-code text-[9px] uppercase tracking-[0.15em] text-[var(--muted)] sm:text-[10px] sm:tracking-[0.2em]">
                                                             {stat.label}
                                                         </p>
-                                                        <p className="mt-2 font-heading text-[0.875rem] font-bold text-[var(--text)]">
+                                                        <p className="mt-2 font-heading text-xs font-bold text-[var(--text)] sm:text-[0.875rem]">
                                                             {stat.value}
                                                         </p>
                                                     </div>
@@ -211,7 +211,7 @@ export default function Hero() {
                                         </div>
                                     </div>
 
-                                    <div className="mt-5 rounded-[1.5rem] border border-[var(--border)] bg-[var(--surface)] p-5">
+                                    <div className="mt-4 rounded-[1.5rem] border border-[var(--border)] bg-[var(--surface)] p-4 sm:mt-5 sm:p-5">
                                         <div className="mb-4 flex items-center gap-2">
                                             <Code2 className="h-4 w-4 text-cyan-400" />
                                             <span className="font-code text-xs text-[var(--muted)]">
@@ -241,24 +241,24 @@ export default function Hero() {
                                         </pre>
                                     </div>
 
-                                    <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                                        <GlassCard className="rounded-2xl p-4" hover={false}>
-                                            <MonitorSmartphone className="mb-3 h-5 w-5 text-cyan-400" />
-                                            <p className="font-heading text-sm font-bold">
+                                    <div className="mt-4 grid grid-cols-3 gap-2 sm:mt-5 sm:gap-3">
+                                        <GlassCard className="rounded-2xl p-3 sm:p-4" hover={false}>
+                                            <MonitorSmartphone className="mb-2 h-5 w-5 sm:mb-3 text-cyan-400" />
+                                            <p className="font-heading text-xs font-bold sm:text-sm">
                                                 Responsive
                                             </p>
                                         </GlassCard>
 
-                                        <GlassCard className="rounded-2xl p-4" hover={false}>
-                                            <Sparkles className="mb-3 h-5 w-5 text-fuchsia-400" />
-                                            <p className="font-heading text-sm font-bold">
+                                        <GlassCard className="rounded-2xl p-3 sm:p-4" hover={false}>
+                                            <Sparkles className="mb-2 h-5 w-5 sm:mb-3 text-fuchsia-400" />
+                                            <p className="font-heading text-xs font-bold sm:text-sm">
                                                 Animated
                                             </p>
                                         </GlassCard>
 
-                                        <GlassCard className="rounded-2xl p-4" hover={false}>
-                                            <Zap className="mb-3 h-5 w-5 text-orange-400" />
-                                            <p className="font-heading text-sm font-bold">Fast</p>
+                                        <GlassCard className="rounded-2xl p-3 sm:p-4" hover={false}>
+                                            <Zap className="mb-2 h-5 w-5 sm:mb-3 text-orange-400" />
+                                            <p className="font-heading text-xs font-bold sm:text-sm">Fast</p>
                                         </GlassCard>
                                     </div>
                                 </div>

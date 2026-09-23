@@ -55,7 +55,7 @@ const highlights = [
 
 export default function AboutPreview() {
     return (
-        <section id="about" className="py-24">
+        <section id="about" className="py-16 sm:py-24">
             <Container>
                 <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                     <div data-gsap-reveal>
@@ -66,7 +66,7 @@ export default function AboutPreview() {
                             align="left"
                         />
 
-                        <div className="mt-8 rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-soft)] sm:p-7">
+                        <div className="mt-8 rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-soft)] sm:p-7">
                             <p className="text-base leading-8 text-[var(--muted)]">
                                 I am a full stack developer who builds web apps that look
                                 high-end, work smoothly across devices, and run on clean,
@@ -107,14 +107,16 @@ export default function AboutPreview() {
 
                             return (
                                 <div key={card.title} data-gsap-item>
-                                    <GlassCard className="h-full rounded-[1.75rem] p-7">
-                                        <div className="rainbow-bg mb-5 grid h-12 w-12 place-items-center rounded-2xl shadow-[var(--shadow-glow)]">
-                                            <Icon className="h-5 w-5 text-white" />
-                                        </div>
+                                    <GlassCard className="h-full rounded-[1.75rem] p-5 sm:p-7">
+                                        <div className="flex items-center gap-4 sm:block">
+                                            <div className="rainbow-bg grid h-11 w-11 shrink-0 place-items-center rounded-2xl shadow-[var(--shadow-glow)] sm:mb-5 sm:h-12 sm:w-12">
+                                                <Icon className="h-5 w-5 text-white" />
+                                            </div>
 
-                                        <h3 className="font-heading text-lg font-bold text-[var(--text)]">
-                                            {card.title}
-                                        </h3>
+                                            <h3 className="font-heading text-lg font-bold text-[var(--text)]">
+                                                {card.title}
+                                            </h3>
+                                        </div>
 
                                         <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
                                             {card.text}
