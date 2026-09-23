@@ -13,7 +13,7 @@ export default function Services() {
                     <SectionHeading
                         eyebrow="Services"
                         title="What I can build for you"
-                        description="Frontend-focused services designed to create modern, responsive, and high-quality web experiences."
+                        description="Full stack services — from premium interfaces to reliable backends — designed to create modern, responsive, high-quality web experiences."
                     />
                 </div>
 

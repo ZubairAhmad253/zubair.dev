@@ -202,7 +202,7 @@ export default function Hero() {
                                                         <p className="font-code text-[10px] uppercase tracking-[0.2em] text-[var(--muted)]">
                                                             {stat.label}
                                                         </p>
-                                                        <p className="mt-2 font-heading text-sm font-bold text-[var(--text)]">
+                                                        <p className="mt-2 font-heading text-[0.875rem] font-bold text-[var(--text)]">
                                                             {stat.value}
                                                         </p>
                                                     </div>

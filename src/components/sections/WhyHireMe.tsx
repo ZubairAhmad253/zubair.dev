@@ -52,8 +52,8 @@ export default function WhyHireMe() {
                 <div data-gsap-reveal>
                     <SectionHeading
                         eyebrow="Why Hire Me"
-                        title="Frontend development with premium presentation."
-                        description="I care about the full frontend experience — how the website looks, feels, loads, responds, and converts."
+                        title="Full stack development with premium presentation."
+                        description="I care about the full product experience — how it looks, feels, loads, responds, converts, and runs behind the scenes."
                     />
                 </div>
 

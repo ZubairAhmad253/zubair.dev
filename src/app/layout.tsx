@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Sora } from "next/font/google";
+import { JetBrains_Mono, Plus_Jakarta_Sans, Sora } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/providers/ThemeProvider";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import PageTransitionProvider from "@/components/providers/PageTransitionProvider";
 import GSAPProvider from "@/components/providers/GSAPProvider";
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-body",
 });
 
 const sora = Sora({
@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${sora.variable} ${jetBrainsMono.variable}`}
+        className={`${jakarta.variable} ${sora.variable} ${jetBrainsMono.variable}`}
       >
         <ThemeProvider>
           <SmoothScrollProvider>
