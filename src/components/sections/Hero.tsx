@@ -18,7 +18,16 @@ import Container from "@/components/ui/Container";
 import GradientButton from "@/components/ui/GradientButton";
 import GlassCard from "@/components/ui/GlassCard";
 
-const techStack = ["React", "Next.js", "TypeScript", "Tailwind", "GSAP"];
+const techStack = [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "Express.js",
+    "Python",
+    "Tailwind",
+    "GSAP",
+];
 
 const socials = [
     {
@@ -44,7 +53,7 @@ const socials = [
 ];
 
 const stats = [
-    { label: "Focus", value: "Frontend" },
+    { label: "Focus", value: "Full Stack" },
     { label: "Style", value: "Premium UI" },
     { label: "Build", value: "Responsive" },
 ];
@@ -80,14 +89,14 @@ export default function Hero() {
                             className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-semibold text-[var(--muted)] shadow-[var(--shadow-soft)] lg:mx-0"
                         >
                             <span className="rainbow-bg h-2 w-2 rounded-full" />
-                            Available for frontend work & projects
+                            Available for full stack work & projects
                         </div>
 
                         <h1
                             data-hero-item
                             className="font-heading text-3xl font-black tracking-tight text-[var(--text)] sm:text-4xl lg:text-5xl xl:text-6xl"
                         >
-                            Frontend Web Developer creating{" "}
+                            Full Stack Developer building{" "}
                             <span className="rainbow-text">premium web experiences.</span>
                         </h1>
 
@@ -95,9 +104,9 @@ export default function Hero() {
                             data-hero-item
                             className="mx-auto mt-7 max-w-2xl text-base leading-8 text-[var(--muted)] sm:text-lg lg:mx-0"
                         >
-                            I build modern, responsive, animated websites that help businesses,
-                            startups, and personal brands look professional and convert
-                            visitors into customers.
+                            I build modern, responsive web apps end to end — polished React and
+                            Next.js interfaces backed by Node.js, Express.js, and Python — that
+                            help businesses look professional and convert visitors into customers.
                         </p>
 
                         <div
@@ -221,11 +230,11 @@ export default function Hero() {
                                                 {"\n  "}
                                                 <span className="text-orange-400">role</span>:{" "}
                                                 <span className="text-green-400">
-                                                    "Frontend Developer"
+                                                    "Full Stack Developer"
                                                 </span>,
                                                 {"\n  "}
-                                                <span className="text-orange-400">focus</span>:{" "}
-                                                <span className="text-green-400">"Premium UI"</span>,
+                                                <span className="text-orange-400">stack</span>:{" "}
+                                                <span className="text-green-400">"Node.js + Python"</span>,
                                                 {"\n"}
                                                 {"};"}
                                             </code>

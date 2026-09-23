@@ -8,6 +8,7 @@ import SplashScreen from "@/components/sections/SplashScreen";
 import Hero from "@/components/sections/Hero";
 import ValueStrip from "@/components/sections/ValueStrip";
 import AboutPreview from "@/components/sections/AboutPreview";
+import Experience from "@/components/sections/Experience";
 import Services from "@/components/sections/Services";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import BeforeAfter from "@/components/sections/BeforeAfter";
@@ -32,6 +33,7 @@ export default function HomePage() {
         <Hero />
         <ValueStrip />
         <AboutPreview />
+        <Experience />
         <Services />
         <FeaturedProjects />
         <BeforeAfter />

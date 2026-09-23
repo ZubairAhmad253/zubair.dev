@@ -11,9 +11,10 @@ import GradientButton from "@/components/ui/GradientButton";
 const navLinks = [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
+    { label: "Experience", href: "#experience" },
     { label: "Services", href: "#services" },
     { label: "Projects", href: "#projects" },
-    { label: "Process", href: "#process" },
+    { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
 ];
 
@@ -58,7 +59,7 @@ export default function Navbar() {
                                     Zubair Ahmad
                                 </span>
                                 <span className="block text-xs text-[var(--muted)]">
-                                    Frontend Developer
+                                    Full Stack Developer
                                 </span>
                             </span>
                         </Link>

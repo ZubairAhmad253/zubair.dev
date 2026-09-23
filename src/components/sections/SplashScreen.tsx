@@ -83,7 +83,7 @@ export default function SplashScreen() {
                             transition={{ delay: 0.85, duration: 0.6 }}
                             className="mt-3 font-code text-xs uppercase tracking-[0.35em] text-[var(--muted)]"
                         >
-                            Frontend Web Developer
+                            Full Stack Developer
                         </motion.p>
 
                         <motion.p
@@ -92,7 +92,7 @@ export default function SplashScreen() {
                             transition={{ delay: 1.1, duration: 0.6 }}
                             className="mt-5 max-w-md text-sm leading-7 text-[var(--muted)]"
                         >
-                            Building premium, responsive, and animated web experiences.
+                            Building premium, responsive, full stack web experiences.
                         </motion.p>
 
                         <div className="mt-9 h-1.5 w-72 overflow-hidden rounded-full bg-[var(--surface-soft)]">

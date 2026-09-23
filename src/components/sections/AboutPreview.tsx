@@ -15,8 +15,8 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const cards = [
     {
         icon: Layers3,
-        title: "Frontend-first thinking",
-        text: "I focus on layout, hierarchy, responsive structure, and visual clarity.",
+        title: "Full stack thinking",
+        text: "From the API to the final pixel — I plan how every layer of the product fits together.",
     },
     {
         icon: Sparkles,
@@ -30,8 +30,8 @@ const cards = [
     },
     {
         icon: Braces,
-        title: "Clean components",
-        text: "Reusable React/Next.js structure that is easier to update and maintain.",
+        title: "Reliable backends",
+        text: "Clean REST APIs and server logic built with Node.js, Express.js, and Python.",
     },
     {
         icon: Timer,
@@ -46,9 +46,9 @@ const cards = [
 ];
 
 const highlights = [
-    "Frontend Developer",
-    "Responsive Layouts",
-    "Animation Ready",
+    "Full Stack Developer",
+    "Node.js & Express",
+    "Python",
     "Premium UI",
 ];
 
@@ -60,22 +60,23 @@ export default function AboutPreview() {
                     <div data-gsap-reveal>
                         <SectionHeading
                             eyebrow="About Me"
-                            title="I build frontend experiences that feel premium, clean, and intentional."
-                            description="My main strength is frontend development: responsive UI, smooth animation, modern layouts, and professional web experiences."
+                            title="I build full stack products that feel premium, clean, and intentional."
+                            description="I combine premium frontend craft with solid backend engineering: responsive UI, smooth animation, and reliable APIs behind it."
                             align="left"
                         />
 
                         <div className="mt-8 rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-soft)] sm:p-7">
                             <p className="text-base leading-8 text-[var(--muted)]">
-                                I am a frontend web developer focused on creating websites that
-                                look high-end, work smoothly across devices, and help businesses
-                                or personal brands look more trustworthy online.
+                                I am a full stack developer who builds web apps that look
+                                high-end, work smoothly across devices, and run on clean,
+                                dependable backends — helping businesses and brands look more
+                                trustworthy online.
                             </p>
 
                             <p className="mt-4 text-base leading-8 text-[var(--muted)]">
-                                I can also support smaller backend features when needed, such as
-                                forms, API integrations, dashboards, and database-connected
-                                functionality.
+                                I currently work as a Support Engineer at Badr Technology LLC,
+                                the company behind the BadrGo ride-hailing platform in Qatar,
+                                where I build with Node.js, Express.js, and Python.
                             </p>
 
                             <div className="mt-7 grid gap-3 sm:grid-cols-2">

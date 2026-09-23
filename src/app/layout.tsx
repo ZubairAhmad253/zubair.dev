@@ -22,16 +22,21 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zubair Ahmad — Frontend Web Developer",
+  title: "Zubair Ahmad — Full Stack Developer",
   description:
-    "Premium frontend web developer portfolio focused on modern UI, responsive websites, smooth animations, and luxury digital experiences.",
+    "Full stack developer portfolio — premium React & Next.js interfaces backed by Node.js, Express.js, and Python. Support Engineer at Badr Technology LLC (BadrGo), Qatar.",
   keywords: [
     "Zubair Ahmad",
+    "Full Stack Developer",
     "Frontend Web Developer",
+    "Node.js Developer",
+    "Express.js Developer",
+    "Python Developer",
     "React Developer",
     "Next.js Developer",
     "Portfolio Website",
     "Web Developer Qatar",
+    "Full Stack Developer Qatar",
   ],
   authors: [{ name: "Zubair Ahmad" }],
   creator: "Zubair Ahmad",

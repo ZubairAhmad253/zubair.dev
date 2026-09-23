@@ -9,13 +9,17 @@ import GradientButton from "@/components/ui/GradientButton";
 const footerLinks = [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
+    { label: "Experience", href: "#experience" },
     { label: "Services", href: "#services" },
     { label: "Projects", href: "#projects" },
+    { label: "Skills", href: "#skills" },
     { label: "Process", href: "#process" },
     { label: "Contact", href: "#contact" },
 ];
 
 const services = [
+    "Full Stack Web Apps",
+    "APIs with Node.js & Express",
     "Portfolio Websites",
     "Business Websites",
     "SaaS Landing Pages",
@@ -64,14 +68,15 @@ export default function Footer() {
                                     Zubair Ahmad
                                 </span>
                                 <span className="block text-sm text-[var(--muted)]">
-                                    Frontend Web Developer
+                                    Full Stack Developer
                                 </span>
                             </span>
                         </Link>
 
                         <p className="mt-5 max-w-md text-sm leading-7 text-[var(--muted)]">
-                            I build premium frontend websites with modern UI, responsive
-                            layouts, smooth animations, and clean user experiences.
+                            I build premium full stack web apps — modern React and Next.js
+                            interfaces backed by Node.js, Express.js, and Python APIs.
+                            Currently a Support Engineer at Badr Technology LLC (BadrGo), Qatar.
                         </p>
 
                         <div className="mt-6 flex flex-wrap gap-3">
@@ -163,7 +168,7 @@ export default function Footer() {
                 <div className="mt-10 flex flex-col gap-3 border-t border-[var(--border)] pt-6 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between">
                     <p>© {new Date().getFullYear()} Zubair Ahmad. All rights reserved.</p>
                     <p className="rainbow-text font-code">
-                        Premium frontend experiences.
+                        Premium full stack experiences.
                     </p>
                 </div>
             </Container>

@@ -21,7 +21,7 @@ export default function FeaturedProjects() {
                 <div data-gsap-reveal>
                     <SectionHeading
                         eyebrow="Featured Projects"
-                        title="Selected work designed to show real frontend value."
+                        title="Selected work designed to show real product value."
                         description="These projects show how I think about layout, user experience, responsiveness, visual polish, and business-focused presentation."
                     />
                 </div>

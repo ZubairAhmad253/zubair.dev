@@ -1,6 +1,6 @@
 "use client";
 
-import { Code2, Cpu, PenTool, Sparkles, BadgeCheck } from "lucide-react";
+import { Code2, Server, PenTool, Wrench, BadgeCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -15,22 +15,22 @@ const skillGroups = [
         note: "Building clean, reusable React and Next.js interfaces.",
     },
     {
-        title: "Styling & UI",
+        title: "Backend",
+        icon: Server,
+        items: skills.backend,
+        note: "Building APIs and server logic with Node.js, Express.js, and Python.",
+    },
+    {
+        title: "Styling & Motion",
         icon: PenTool,
         items: skills.styling,
-        note: "Creating responsive layouts with strong spacing and hierarchy.",
+        note: "Responsive layouts and smooth interactions that never feel heavy.",
     },
     {
-        title: "Animation",
-        icon: Sparkles,
-        items: skills.animation,
-        note: "Adding smooth interactions without making the UI feel heavy.",
-    },
-    {
-        title: "Extra Support",
-        icon: Cpu,
-        items: skills.extras,
-        note: "Supporting forms, APIs, SEO basics, and small backend features.",
+        title: "Tools & Support",
+        icon: Wrench,
+        items: skills.tools,
+        note: "Shipping, deploying, and supporting real products used every day.",
     },
 ];
 
@@ -38,6 +38,9 @@ const marqueeSkills = [
     "React",
     "Next.js",
     "TypeScript",
+    "Node.js",
+    "Express.js",
+    "Python",
     "Tailwind CSS",
     "Framer Motion",
     "GSAP",
@@ -54,8 +57,8 @@ export default function Skills() {
                 <div data-gsap-reveal>
                     <SectionHeading
                         eyebrow="Skills"
-                        title="Frontend skills that help me build polished, hire-ready websites."
-                        description="My strongest area is frontend development: clean UI, responsive layouts, smooth animation, and practical user experience."
+                        title="Full stack skills that help me build polished, hire-ready products."
+                        description="Premium frontend craft on top of dependable backends: clean UI, responsive layouts, smooth animation, and solid APIs."
                     />
                 </div>
 
@@ -105,7 +108,7 @@ export default function Skills() {
 
                 <div className="mt-12 grid gap-4 md:grid-cols-3" data-gsap-stagger>
                     {[
-                        "I focus on practical frontend work, not just decoration.",
+                        "I build complete products — frontend, backend, and APIs.",
                         "I care about mobile experience, speed, and clean structure.",
                         "I build websites that help people trust you and take action.",
                     ].map((item) => (
