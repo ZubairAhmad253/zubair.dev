@@ -3,23 +3,34 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import GradientButton from "@/components/ui/GradientButton";
 import { services } from "@/data/services";
 
-export default function Services() {
+type ServicesProps = {
+    /** Show only the first N services plus a "View all" button (home page) */
+    limit?: number;
+    /** Hide the section heading when the page already has a title */
+    hideHeading?: boolean;
+};
+
+export default function Services({ limit, hideHeading = false }: ServicesProps) {
+    const items = limit ? services.slice(0, limit) : services;
+
     return (
         <section id="services" className="py-16 sm:py-24">
             <Container>
-                <div data-gsap-reveal>
-                    <SectionHeading
-                        eyebrow="Services"
-                        title="What I can build for you"
-                        description="Full stack services — from premium interfaces to reliable backends — designed to create modern, responsive, high-quality web experiences."
-                    />
-                </div>
+                {!hideHeading && (
+                    <div data-gsap-reveal>
+                        <SectionHeading
+                            eyebrow="Services"
+                            title="What I can build for you"
+                            description="Full stack services — from premium interfaces to reliable backends — designed to create modern, responsive, high-quality web experiences."
+                        />
+                    </div>
+                )}
 
                 <div
-                    className="mt-10 grid sm:mt-14 gap-7 sm:grid-cols-2 lg:grid-cols-3"
+                    className={`grid gap-7 sm:grid-cols-2 lg:grid-cols-3 ${hideHeading ? "" : "mt-10 sm:mt-14"}`}
                     data-gsap-stagger
                 >
-                    {services.map((service) => {
+                    {items.map((service) => {
                         const Icon = service.icon;
 
                         return (
@@ -85,6 +96,14 @@ export default function Services() {
                         );
                     })}
                 </div>
+
+                {limit && (
+                    <div className="mt-12 flex justify-center">
+                        <GradientButton href="/services" variant="secondary">
+                            View All Services
+                        </GradientButton>
+                    </div>
+                )}
             </Container>
         </section>
     );

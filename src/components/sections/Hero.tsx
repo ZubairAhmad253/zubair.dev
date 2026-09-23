@@ -165,7 +165,7 @@ export default function Hero() {
                             data-hero="buttons"
                             className="mt-9 flex flex-col items-center gap-4 sm:flex-row lg:items-start"
                         >
-                            <GradientButton href="#projects">View Projects</GradientButton>
+                            <GradientButton href="/projects">View Projects</GradientButton>
                             <GradientButton href="/contact" variant="secondary">
                                 Hire Me
                             </GradientButton>
@@ -318,13 +318,14 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <a
-                    href="#about"
+                <button
+                    type="button"
+                    onClick={() => window.scrollBy({ top: window.innerHeight * 0.85, behavior: "smooth" })}
                     className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm text-[var(--muted)] shadow-[var(--shadow-soft)] transition hover:text-[var(--text)] lg:flex"
                 >
                     Scroll
                     <ArrowDown className="h-4 w-4 animate-bounce" />
-                </a>
+                </button>
             </Container>
         </section>
     );

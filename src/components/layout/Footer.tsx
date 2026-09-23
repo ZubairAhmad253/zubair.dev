@@ -5,17 +5,12 @@ import Container from "@/components/ui/Container";
 import GradientButton from "@/components/ui/GradientButton";
 
 const footerLinks = [
-    { label: "Home", href: "/#home" },
-    { label: "About", href: "/#about" },
-    { label: "Experience", href: "/#experience" },
-    { label: "Services", href: "/#services" },
-    { label: "Projects", href: "/#projects" },
-    { label: "Skills", href: "/#skills" },
-    { label: "Process", href: "/#process" },
-    { label: "FAQ", href: "/#faq" },
-    { label: "All Projects", href: "/projects" },
-    { label: "My CV", href: "/cv" },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Projects", href: "/projects" },
     { label: "Contact", href: "/contact" },
+    { label: "My CV", href: "/cv" },
 ];
 
 const services = [

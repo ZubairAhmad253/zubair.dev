@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
     ArrowUpRight,
-    BriefcaseBusiness,
-    Code2,
     FileText,
     FolderOpen,
     House,
@@ -22,19 +21,21 @@ import ThemeToggle from "@/components/ui/ThemeToggle";
 import GradientButton from "@/components/ui/GradientButton";
 
 const navLinks = [
-    { label: "Home", href: "/#home", icon: House },
-    { label: "About", href: "/#about", icon: UserRound },
-    { label: "Experience", href: "/#experience", icon: BriefcaseBusiness },
-    { label: "Services", href: "/#services", icon: Layers3 },
-    { label: "Projects", href: "/#projects", icon: FolderOpen },
-    { label: "Skills", href: "/#skills", icon: Code2 },
-    { label: "Contact", href: "/#contact", icon: Mail },
+    { label: "Home", href: "/", icon: House },
+    { label: "About", href: "/about", icon: UserRound },
+    { label: "Services", href: "/services", icon: Layers3 },
+    { label: "Projects", href: "/projects", icon: FolderOpen },
+    { label: "Contact", href: "/contact", icon: Mail },
 ];
 
-const quickLinks = [
-    { label: "All Projects", href: "/projects", icon: FolderOpen },
-    { label: "My CV", href: "/cv", icon: FileText },
-];
+const quickLinks = [{ label: "My CV", href: "/cv", icon: FileText }];
+
+// "/projects/nexora" keeps "Projects" highlighted, and case studies belong to Projects
+function isActive(pathname: string, href: string) {
+    if (href === "/") return pathname === "/";
+    if (href === "/projects" && pathname.startsWith("/case-studies")) return true;
+    return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 const socials = [
     { label: "GitHub", href: "https://github.com/ZubairAhmad253", icon: FaGithub },
@@ -43,6 +44,7 @@ const socials = [
 ];
 
 export default function Navbar() {
+    const pathname = usePathname();
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -123,7 +125,8 @@ export default function Navbar() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className="relative rounded-full px-4 py-2 text-sm font-medium text-[var(--muted)] transition duration-300 after:absolute after:inset-x-4 after:bottom-1 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[image:var(--rainbow)] after:transition-transform after:duration-300 hover:bg-[var(--surface-soft)] hover:text-[var(--text)] hover:after:scale-x-100"
+                                    aria-current={isActive(pathname, link.href) ? "page" : undefined}
+                                    className="relative rounded-full px-4 py-2 text-sm font-medium text-[var(--muted)] transition duration-300 aria-[current=page]:bg-[var(--surface-soft)] aria-[current=page]:text-[var(--text)] aria-[current=page]:after:scale-x-100 after:absolute after:inset-x-4 after:bottom-1 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[image:var(--rainbow)] after:transition-transform after:duration-300 hover:bg-[var(--surface-soft)] hover:text-[var(--text)] hover:after:scale-x-100"
                                 >
                                     {link.label}
                                 </Link>
@@ -170,7 +173,8 @@ export default function Navbar() {
                                             key={link.href}
                                             href={link.href}
                                             onClick={close}
-                                            className="group flex items-center gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-soft)] px-3 py-3 text-sm font-semibold text-[var(--text)] transition active:scale-[0.98]"
+                                            aria-current={isActive(pathname, link.href) ? "page" : undefined}
+                                            className="group flex items-center gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-soft)] px-3 py-3 text-sm font-semibold text-[var(--text)] transition active:scale-[0.98] [&:last-child:nth-child(odd)]:col-span-2 aria-[current=page]:border-[var(--border-strong)] aria-[current=page]:shadow-[var(--shadow-glow)]"
                                         >
                                             <span className="rainbow-bg grid h-8 w-8 shrink-0 place-items-center rounded-xl">
                                                 <Icon className="h-4 w-4 text-white" />

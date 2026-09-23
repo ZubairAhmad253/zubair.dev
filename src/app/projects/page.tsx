@@ -7,6 +7,8 @@ import PageHero from "@/components/ui/PageHero";
 import Container from "@/components/ui/Container";
 import GradientButton from "@/components/ui/GradientButton";
 import ImageReveal from "@/components/ui/ImageReveal";
+import CaseStudies from "@/components/sections/CaseStudies";
+import BeforeAfter from "@/components/sections/BeforeAfter";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
@@ -130,6 +132,9 @@ export default function ProjectsPage() {
                     </div>
                 </Container>
             </section>
+
+            <CaseStudies />
+            <BeforeAfter />
         </PageShell>
     );
 }

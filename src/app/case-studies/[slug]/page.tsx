@@ -52,7 +52,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 eyebrow="Case Study"
                 title={study.title}
                 description="How I think through a frontend problem — from the goal to the final, polished result."
-                backHref="/#case-studies"
+                backHref="/projects"
                 backLabel="All case studies"
             />
 

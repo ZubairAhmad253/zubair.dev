@@ -18,6 +18,7 @@ import {
 } from "react-icons/si";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import GradientButton from "@/components/ui/GradientButton";
 
 const tools = [
     { name: "React", icon: SiReact, color: "#61DAFB" },
@@ -38,7 +39,14 @@ const tools = [
     { name: "Vercel", icon: SiVercel, color: "var(--text)" },
 ];
 
-export default function TechStack() {
+type TechStackProps = {
+    /** Home page highlight: first 8 tools and a link to the full list */
+    compact?: boolean;
+};
+
+export default function TechStack({ compact = false }: TechStackProps) {
+    const items = compact ? tools.slice(0, 8) : tools;
+
     return (
         <section id="tech-stack" className="py-16 sm:py-24">
             <Container>
@@ -54,7 +62,7 @@ export default function TechStack() {
                     className="mt-10 grid sm:mt-14 grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-4 lg:grid-cols-8"
                     data-gsap-stagger
                 >
-                    {tools.map((tool) => {
+                    {items.map((tool) => {
                         const Icon = tool.icon;
 
                         return (
@@ -79,6 +87,14 @@ export default function TechStack() {
                         );
                     })}
                 </div>
+
+                {compact && (
+                    <div className="mt-12 flex justify-center">
+                        <GradientButton href="/about" variant="secondary">
+                            See All Skills
+                        </GradientButton>
+                    </div>
+                )}
             </Container>
         </section>
     );

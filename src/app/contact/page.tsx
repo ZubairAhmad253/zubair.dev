@@ -5,6 +5,7 @@ import PageShell from "@/components/layout/PageShell";
 import PageHero from "@/components/ui/PageHero";
 import Container from "@/components/ui/Container";
 import ContactForm from "@/components/sections/ContactForm";
+import FAQ from "@/components/sections/FAQ";
 
 export const metadata: Metadata = {
     title: "Contact — Zubair Ahmad",
@@ -120,6 +121,8 @@ export default function ContactPage() {
                     </div>
                 </Container>
             </section>
+
+            <FAQ />
         </PageShell>
     );
 }

@@ -50,7 +50,7 @@ export default async function ServicePage({ params }: Props) {
                 eyebrow="Service"
                 title={service.title}
                 description={service.intro}
-                backHref="/#services"
+                backHref="/services"
                 backLabel="All services"
             >
                 <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

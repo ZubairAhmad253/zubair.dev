@@ -12,7 +12,14 @@ import GradientButton from "@/components/ui/GradientButton";
 import ImageReveal from "@/components/ui/ImageReveal";
 import { projects } from "@/data/projects";
 
-export default function FeaturedProjects() {
+type FeaturedProjectsProps = {
+    /** Number of projects to highlight */
+    limit?: number;
+};
+
+export default function FeaturedProjects({ limit = 2 }: FeaturedProjectsProps) {
+    const items = projects.slice(0, limit);
+
     return (
         <section id="projects" className="py-16 sm:py-24">
             <Container>
@@ -25,7 +32,7 @@ export default function FeaturedProjects() {
                 </div>
 
                 <div className="mt-10 grid sm:mt-16 gap-10" data-gsap-stagger>
-                    {projects.map((project, index) => {
+                    {items.map((project, index) => {
                         const reversed = index % 2 !== 0;
 
                         return (
