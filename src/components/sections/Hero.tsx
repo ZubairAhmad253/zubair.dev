@@ -25,7 +25,7 @@ import { cn } from "@/lib/utils";
 
 const SLIDE_MS = 7000;
 
-const techStack = ["React", "Next.js", "TypeScript", "Node.js", "Express.js", "Python"];
+const techStack = ["React", "Next.js", "Node.js", "Express.js", "Python"];
 const experienceTech = ["Node.js", "Express.js", "Python", "React", "Next.js"];
 
 const socials = [
@@ -65,7 +65,7 @@ function Badge({ children, live, hero }: { children: React.ReactNode; live?: boo
     return (
         <div
             data-hero={hero ? "badge" : undefined}
-            className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-semibold text-[var(--muted)] shadow-[var(--shadow-soft)] lg:mx-0"
+            className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-semibold text-[var(--muted)] shadow-[var(--shadow-soft)] lg:mx-0"
         >
             {live ? (
                 <span className="relative flex h-2 w-2">
@@ -81,10 +81,11 @@ function Badge({ children, live, hero }: { children: React.ReactNode; live?: boo
 }
 
 const titleClass =
-    "font-display text-[1.6rem] text-[var(--text)] sm:text-3xl lg:text-[1.95rem] xl:text-[2.15rem]";
-const textClass = "mx-auto mt-5 max-w-2xl text-base leading-8 text-[var(--muted)] lg:mx-0";
-const buttonsClass = "mt-7 flex flex-col items-center gap-4 sm:flex-row lg:items-start";
-const tagsClass = "mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:justify-start";
+    "font-display text-[1.3rem] text-[var(--text)] sm:text-2xl lg:text-[1.55rem] xl:text-[1.7rem]";
+const textClass = "mx-auto mt-4 max-w-xl text-[0.95rem] leading-7 text-[var(--muted)] lg:mx-0";
+const buttonsClass =
+    "mt-6 flex flex-row flex-wrap items-center justify-center gap-3 lg:justify-start [&_a]:min-w-0 [&_a]:px-5 max-sm:[&_a]:min-h-11 max-sm:[&_a]:text-[13px]";
+const tagsClass = "mt-5 hidden flex-wrap items-center justify-center gap-2 sm:flex sm:gap-3 lg:justify-start";
 
 export default function Hero() {
     const heroRef = useRef<HTMLDivElement>(null);
@@ -254,7 +255,7 @@ export default function Hero() {
                             </div>
 
                     <div
-                        className="relative grid touch-pan-y px-5 py-8 sm:px-8 sm:py-9 lg:px-12 lg:py-9"
+                        className="relative grid touch-pan-y px-5 py-6 sm:px-8 sm:py-7 lg:px-12 lg:py-7"
                         onPointerDown={onPointerDown}
                         onPointerUp={onPointerUp}
                         onPointerCancel={() => (pointerStart.current = null)}
@@ -306,7 +307,7 @@ export default function Hero() {
                             </div>
 
                             {/* Compact developer card */}
-                            <div data-hero="card" className="relative mx-auto w-full max-w-md [perspective:1200px]">
+                            <div data-hero="card" className="relative mx-auto hidden w-full max-w-sm [perspective:1200px] lg:block">
                                 <div className="rainbow-border rounded-[2rem] transition-transform duration-500 hover:[transform:rotateX(4deg)_rotateY(-4deg)]">
                                     <div className="glass rounded-[1.95rem] p-3 sm:p-4">
                                         <div className="rounded-[1.6rem] border border-[var(--border)] bg-[var(--surface-soft)] p-4">
@@ -397,7 +398,7 @@ export default function Hero() {
                                 </div>
                             </div>
 
-                            <div className="slide-wipe relative mx-auto w-full max-w-lg">
+                            <div className="slide-wipe relative mx-auto hidden w-full max-w-md lg:block">
                                 <div className="rainbow-border rounded-[2rem]">
                                     <div className="relative overflow-hidden rounded-[1.95rem] bg-[var(--surface)] p-2 sm:p-3">
                                         <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem]">
@@ -468,7 +469,7 @@ export default function Hero() {
                             </div>
 
                             {/* Screenshot collage */}
-                            <div className="slide-collage relative mx-auto aspect-[5/4] w-full max-w-lg">
+                            <div className="slide-collage relative mx-auto hidden aspect-[5/4] w-full max-w-md lg:block">
                                 {showcase.map((project, index) => (
                                     <Link
                                         key={project.slug}

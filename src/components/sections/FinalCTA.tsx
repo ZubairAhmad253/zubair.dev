@@ -19,7 +19,7 @@ export default function FinalCTA() {
                                 Start a Project
                             </p>
 
-                            <h2 className="mt-5 font-display text-[1.6rem] text-[var(--text)] sm:text-4xl lg:text-[2.9rem]">
+                            <h2 className="mt-5 font-display text-[1.35rem] text-[var(--text)] sm:text-3xl lg:text-[2.2rem]">
                                 Have a website idea?{" "}
                                 <span className="rainbow-text">Let’s build it premium.</span>
                             </h2>

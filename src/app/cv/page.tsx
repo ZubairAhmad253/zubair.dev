@@ -67,7 +67,7 @@ export default function CvPage() {
                     <article className="cv-sheet mx-auto max-w-4xl rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-soft)] sm:p-10 print:rounded-none print:border-0 print:p-0 print:shadow-none">
                         <header className="flex flex-col gap-6 border-b border-[var(--border)] pb-8 sm:flex-row sm:items-start sm:justify-between">
                             <div>
-                                <h1 className="font-display text-3xl text-[var(--text)]">
+                                <h1 className="font-display text-2xl text-[var(--text)]">
                                     Zubair Ahmad
                                 </h1>
                                 <p className="mt-2 font-heading text-lg font-bold">

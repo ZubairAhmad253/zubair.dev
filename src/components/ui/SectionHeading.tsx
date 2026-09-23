@@ -29,7 +29,7 @@ export default function SectionHeading({
                 </p>
             )}
 
-            <h2 className="font-display text-[1.45rem] text-[var(--text)] sm:text-3xl lg:text-[2.4rem]">
+            <h2 className="font-display text-[1.2rem] text-[var(--text)] sm:text-2xl lg:text-[1.85rem]">
                 {title}
             </h2>
 

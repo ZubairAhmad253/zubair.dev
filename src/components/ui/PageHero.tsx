@@ -35,7 +35,7 @@ export default function PageHero({
                         {eyebrow}
                     </p>
 
-                    <h1 className="font-display text-[1.6rem] text-[var(--text)] sm:text-4xl lg:text-[2.9rem]">
+                    <h1 className="font-display text-[1.35rem] text-[var(--text)] sm:text-3xl lg:text-[2.2rem]">
                         {title}
                     </h1>
 
