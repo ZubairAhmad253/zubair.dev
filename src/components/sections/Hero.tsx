@@ -245,6 +245,7 @@ export default function Hero() {
             <Container>
                 <div
                     role="region"
+                    data-scroll-out
                     aria-roledescription="carousel"
                     aria-label="Introduction"
                     onMouseEnter={() => setHovered(true)}

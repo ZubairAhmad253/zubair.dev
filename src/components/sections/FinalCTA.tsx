@@ -11,7 +11,7 @@ export default function FinalCTA() {
                         <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-fuchsia-500/10 to-orange-400/10" />
 
                         <div className="relative mx-auto max-w-3xl">
-                            <div className="rainbow-bg mx-auto mb-7 grid h-16 w-16 place-items-center rounded-3xl shadow-[var(--shadow-glow)]">
+                            <div data-parallax="-0.4" className="rainbow-bg mx-auto mb-7 grid h-16 w-16 place-items-center rounded-3xl shadow-[var(--shadow-glow)]">
                                 <Rocket className="h-7 w-7 text-white" />
                             </div>
 

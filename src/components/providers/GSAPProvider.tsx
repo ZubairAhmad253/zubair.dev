@@ -96,7 +96,7 @@ export default function GSAPProvider({ children }: { children: ReactNode }) {
                 if (item.hasAttribute("data-parallax-fixed")) {
                     // Fixed background layers: move over the whole page height
                     gsap.to(item, {
-                        y: () => speed * (document.documentElement.scrollHeight - window.innerHeight) * 0.35,
+                        y: () => speed * (document.documentElement.scrollHeight - window.innerHeight) * 0.6,
                         ease: "none",
                         scrollTrigger: {
                             trigger: document.documentElement,
@@ -111,9 +111,9 @@ export default function GSAPProvider({ children }: { children: ReactNode }) {
 
                 gsap.fromTo(
                     item,
-                    { y: () => -speed * 120 },
+                    { y: () => -speed * 160 },
                     {
-                        y: () => speed * 120,
+                        y: () => speed * 160,
                         ease: "none",
                         scrollTrigger: {
                             trigger: item,
@@ -130,10 +130,10 @@ export default function GSAPProvider({ children }: { children: ReactNode }) {
             gsap.utils.toArray<HTMLElement>("[data-parallax-img]").forEach((item) => {
                 gsap.fromTo(
                     item,
-                    { yPercent: -7, scale: 1.16 },
+                    { yPercent: -14, scale: 1.32 },
                     {
-                        yPercent: 7,
-                        scale: 1.16,
+                        yPercent: 14,
+                        scale: 1.32,
                         ease: "none",
                         scrollTrigger: {
                             trigger: item.parentElement ?? item,
@@ -145,13 +145,49 @@ export default function GSAPProvider({ children }: { children: ReactNode }) {
                 );
             });
 
-            // Section headings: the small eyebrow label lifts slightly faster than the title
+            // Giant outlined words behind section titles slide sideways
+            gsap.utils.toArray<HTMLElement>("[data-watermark]").forEach((item, index) => {
+                const direction = index % 2 === 0 ? 1 : -1;
+                // Centering stays on the CSS translate property; GSAP only adds the drift
+                gsap.fromTo(
+                    item,
+                    { xPercent: 18 * direction },
+                    {
+                        xPercent: -18 * direction,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: item.parentElement ?? item,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: 0.8,
+                        },
+                    }
+                );
+            });
+
+            // Hero: the slider sinks back, shrinks and fades as you scroll away from it
+            gsap.utils.toArray<HTMLElement>("[data-scroll-out]").forEach((item) => {
+                gsap.to(item, {
+                    y: 180,
+                    scale: 0.9,
+                    autoAlpha: 0.2,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top top+=120",
+                        end: "bottom top",
+                        scrub: 0.5,
+                    },
+                });
+            });
+
+            // Section headings: the small eyebrow label lifts faster than the title
             gsap.utils.toArray<HTMLElement>("[data-eyebrow]").forEach((item) => {
                 gsap.fromTo(
                     item,
-                    { y: 18 },
+                    { y: 40 },
                     {
-                        y: -18,
+                        y: -40,
                         ease: "none",
                         scrollTrigger: { trigger: item, start: "top bottom", end: "bottom top", scrub: 0.6 },
                     }

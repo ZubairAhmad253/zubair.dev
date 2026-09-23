@@ -2,10 +2,10 @@
 // different speed while scrolling (data-parallax), which gives depth.
 // Radial gradients instead of blur filters keep them cheap to paint.
 const orbs = [
-    { className: "left-[-12%] top-[8%] h-[34rem] w-[34rem]", color: "rgba(34, 211, 238, 0.14)", speed: -0.25 },
-    { className: "right-[-10%] top-[30%] h-[30rem] w-[30rem]", color: "rgba(217, 70, 239, 0.12)", speed: -0.45 },
-    { className: "left-[20%] top-[65%] h-[28rem] w-[28rem]", color: "rgba(251, 146, 60, 0.1)", speed: -0.15 },
-    { className: "right-[15%] top-[95%] h-[26rem] w-[26rem]", color: "rgba(59, 130, 246, 0.12)", speed: -0.35 },
+    { className: "left-[-12%] top-[8%] h-[40rem] w-[40rem]", color: "rgba(34, 211, 238, 0.22)", speed: -0.3 },
+    { className: "right-[-10%] top-[35%] h-[36rem] w-[36rem]", color: "rgba(217, 70, 239, 0.2)", speed: -0.7 },
+    { className: "left-[20%] top-[70%] h-[32rem] w-[32rem]", color: "rgba(251, 146, 60, 0.16)", speed: -0.2 },
+    { className: "right-[15%] top-[100%] h-[30rem] w-[30rem]", color: "rgba(59, 130, 246, 0.18)", speed: -0.5 },
 ];
 
 export default function ParallaxBackground() {
