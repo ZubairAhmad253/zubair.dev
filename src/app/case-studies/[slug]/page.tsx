@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2, Lightbulb, Target, Trophy } from "lucide-react";
@@ -23,10 +24,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!study) return {};
 
-    return {
-        title: `${study.title} — Case Study — Zubair Ahmad`,
-        description: study.challenge,
-    };
+    return pageMeta({
+        title: `${study.title} — Case Study`,
+        description: `${study.challenge} ${study.solution}`,
+        path: `/case-studies/${study.slug}`,
+    });
 }
 
 export default async function CaseStudyPage({ params }: Props) {

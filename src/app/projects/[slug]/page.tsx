@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2, ExternalLink, Target, Wand2 } from "lucide-react";
@@ -24,10 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!project) return {};
 
-    return {
-        title: `${project.title} — Zubair Ahmad`,
+    return pageMeta({
+        title: project.title,
         description: project.description,
-    };
+        path: `/projects/${project.slug}`,
+        ownShareImage: true,
+    });
 }
 
 export default async function ProjectPage({ params }: Props) {

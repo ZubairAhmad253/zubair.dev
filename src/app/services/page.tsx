@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import PageShell from "@/components/layout/PageShell";
 import PageHero from "@/components/ui/PageHero";
 import GradientButton from "@/components/ui/GradientButton";
@@ -6,11 +7,12 @@ import Services from "@/components/sections/Services";
 import Process from "@/components/sections/Process";
 import FinalCTA from "@/components/sections/FinalCTA";
 
-export const metadata: Metadata = {
-    title: "Services — Zubair Ahmad",
+export const metadata: Metadata = pageMeta({
+    title: "Services",
     description:
         "Full stack web development services by Zubair Ahmad: portfolio websites, SaaS landing pages, business websites, UI/UX upgrades, animation and responsive optimization.",
-};
+    path: "/services",
+});
 
 export default function ServicesPage() {
     return (

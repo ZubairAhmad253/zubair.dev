@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import Link from "next/link";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
@@ -11,11 +12,12 @@ import CaseStudies from "@/components/sections/CaseStudies";
 import BeforeAfter from "@/components/sections/BeforeAfter";
 import { projects } from "@/data/projects";
 
-export const metadata: Metadata = {
-    title: "Projects — Zubair Ahmad",
+export const metadata: Metadata = pageMeta({
+    title: "Projects",
     description:
-        "Selected full stack and frontend projects by Zubair Ahmad: portfolio templates, business websites, and React web apps.",
-};
+        "Selected projects by Zubair Ahmad: Alright Tech, BadrGo, Bloom Cypher and Nexora — company websites, platforms and templates, with case studies.",
+    path: "/projects",
+});
 
 export default function ProjectsPage() {
     return (

@@ -88,6 +88,7 @@ export default function Services({ limit, hideHeading = false }: ServicesProps) 
                                                 icon={false}
                                             >
                                                 Learn More
+                                                <span className="sr-only"> about {service.title}</span>
                                             </GradientButton>
                                         </div>
                                     </div>

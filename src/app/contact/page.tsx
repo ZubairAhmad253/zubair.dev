@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import { Clock, Mail, MapPin, MessageCircle } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import PageShell from "@/components/layout/PageShell";
@@ -7,11 +8,12 @@ import Container from "@/components/ui/Container";
 import ContactForm from "@/components/sections/ContactForm";
 import FAQ from "@/components/sections/FAQ";
 
-export const metadata: Metadata = {
-    title: "Contact — Zubair Ahmad",
+export const metadata: Metadata = pageMeta({
+    title: "Contact",
     description:
-        "Start a project with Zubair Ahmad, Full Stack Developer in Doha, Qatar. Send a message by email or WhatsApp.",
-};
+        "Start a project with Zubair Ahmad, Full Stack Developer in Doha, Qatar. Send a message by email or WhatsApp, or read the FAQ.",
+    path: "/contact",
+});
 
 const channels = [
     {

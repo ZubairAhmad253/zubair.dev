@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import PageShell from "@/components/layout/PageShell";
 import PageHero from "@/components/ui/PageHero";
 import GradientButton from "@/components/ui/GradientButton";
@@ -9,11 +10,12 @@ import TechStack from "@/components/sections/TechStack";
 import WhyHireMe from "@/components/sections/WhyHireMe";
 import FinalCTA from "@/components/sections/FinalCTA";
 
-export const metadata: Metadata = {
-    title: "About — Zubair Ahmad, Full Stack Developer",
+export const metadata: Metadata = pageMeta({
+    title: "About",
     description:
         "About Zubair Ahmad: Full Stack Developer (React, Next.js, Node.js, Express.js, Python) and Support Engineer at Badr Technology LLC in Doha, Qatar. Experience, skills and tech stack.",
-};
+    path: "/about",
+});
 
 export default function AboutPage() {
     return (

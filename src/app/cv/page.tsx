@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import { Globe, Mail, MapPin, Phone } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import PageShell from "@/components/layout/PageShell";
@@ -10,11 +11,12 @@ import { experience } from "@/data/experience";
 import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
 
-export const metadata: Metadata = {
-    title: "CV — Zubair Ahmad, Full Stack Developer",
+export const metadata: Metadata = pageMeta({
+    title: "CV",
     description:
         "Resume of Zubair Ahmad — Full Stack Developer (React, Next.js, Node.js, Express.js, Python) and Support Engineer at Badr Technology LLC, Qatar.",
-};
+    path: "/cv",
+});
 
 const contact = [
     { icon: MapPin, text: "Doha, Qatar" },

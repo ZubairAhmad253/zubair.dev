@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/site";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2, Mail, MessageCircle, Users } from "lucide-react";
@@ -22,10 +23,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!service) return {};
 
-    return {
-        title: `${service.title} — Zubair Ahmad`,
-        description: service.desc,
-    };
+    return pageMeta({
+        title: service.title,
+        description: `${service.desc} ${service.intro}`.slice(0, 158),
+        path: `/services/${service.slug}`,
+    });
 }
 
 const steps = [

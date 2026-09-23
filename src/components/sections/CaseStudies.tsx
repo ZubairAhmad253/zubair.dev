@@ -78,6 +78,7 @@ export default function CaseStudies() {
                                             className="w-full"
                                         >
                                             View thinking
+                                            <span className="sr-only"> behind {item.title}</span>
                                             <ArrowUpRight className="h-4 w-4 shrink-0" />
                                         </GradientButton>
                                     </div>
