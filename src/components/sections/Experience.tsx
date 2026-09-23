@@ -1,6 +1,7 @@
 import { BriefcaseBusiness, CalendarDays, CheckCircle2, MapPin } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import GradientButton from "@/components/ui/GradientButton";
 import { experience } from "@/data/experience";
 
 export default function Experience() {
@@ -105,6 +106,17 @@ export default function Experience() {
                                                 </span>
                                             ))}
                                         </div>
+
+                                        {job.projectSlug && (
+                                            <div className="mt-7">
+                                                <GradientButton
+                                                    href={`/projects/${job.projectSlug}`}
+                                                    variant="secondary"
+                                                >
+                                                    View the BadrGo Project
+                                                </GradientButton>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>

@@ -14,5 +14,6 @@ export const experience = [
       "Working closely with the team to keep systems reliable",
     ],
     tech: ["Node.js", "Express.js", "Python", "React", "Next.js"],
+    projectSlug: "badrgo",
   },
 ];

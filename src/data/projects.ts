@@ -44,17 +44,18 @@ export const projects: ProjectData[] = [
   {
     slug: "badrgo",
     title: "BadrGo — Ride-Hailing Platform Website",
-    category: "Transport / Ride-Hailing",
+    category: "Badr Technology LLC · Ride-Hailing",
     image: "/images/projects/badrgo.webp",
     description:
-      "The bilingual (English / Arabic) website for BadrGo, a ride-hailing app in Qatar — covering rides, hourly and monthly bookings, airport pick-ups, driver sign-up and support.",
+      "The bilingual (English / Arabic) website for BadrGo, a ride-hailing app in Qatar — built while working at Badr Technology LLC, the company behind BadrGo. Covers rides, hourly and monthly bookings, airport pick-ups, driver sign-up and support.",
     problem:
       "A ride-hailing brand needed one clear website that explains its booking options to riders, recruits driver partners, and serves both English and Arabic speakers.",
     solution:
       "Built a bilingual site with app download calls to action, feature sections for every booking type, a dedicated airport pick-up section, FAQs, and pages for drivers, support and careers.",
     overview:
-      "BadrGo is more than a taxi app — it is a transport companion for Qatar. The website introduces the app, explains features like booking per hour, per month, in advance and with extra stops, promotes pick-ups from Hamad International Airport, and helps drivers join as partners.",
+      "I work at Badr Technology LLC as a Support Engineer, and this is the company's own product. BadrGo is more than a taxi app — it is a transport companion for Qatar. The website introduces the app, explains features like booking per hour, per month, in advance and with extra stops, promotes pick-ups from Hamad International Airport, and helps drivers join as partners.",
     features: [
+      "In-house product of Badr Technology LLC, where I work",
       "Bilingual English and Arabic (right-to-left) support",
       "App download calls to action",
       "Book per hour, per month and in advance",
