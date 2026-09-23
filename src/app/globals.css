@@ -340,3 +340,14 @@ section {
 [data-offscreen] *::after {
   animation-play-state: paused !important;
 }
+
+/* Hero slider progress */
+@keyframes heroProgress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}

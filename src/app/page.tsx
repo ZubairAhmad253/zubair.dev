@@ -32,7 +32,7 @@ export default function HomePage() {
         {/* Highlights — each links to its dedicated page */}
         <AboutPreview compact />
         <Services limit={3} />
-        <FeaturedProjects limit={2} />
+        <FeaturedProjects limit={3} />
         <TechStack compact />
         <Testimonials />
         <FinalCTA />

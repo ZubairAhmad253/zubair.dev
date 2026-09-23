@@ -57,7 +57,51 @@ type AboutPreviewProps = {
 };
 
 export default function AboutPreview({ compact = false }: AboutPreviewProps) {
-    const items = compact ? cards.slice(0, 4) : cards;
+    // Home page: a short intro and a link to the full About page
+    if (compact) {
+        return (
+            <section id="about" className="py-16 sm:py-24">
+                <Container>
+                    <div
+                        data-gsap-reveal
+                        className="grid gap-8 rounded-[2.4rem] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-soft)] sm:p-10 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-14 lg:p-14"
+                    >
+                        <SectionHeading
+                            eyebrow="About Me"
+                            title="Full stack developer who builds premium, reliable products."
+                            align="left"
+                        />
+
+                        <div>
+                            <p className="text-base leading-8 text-[var(--muted)] sm:text-lg">
+                                I design and build web apps end to end — clean React and Next.js
+                                interfaces on top of Node.js, Express.js, and Python backends.
+                                Currently a Support Engineer at Badr Technology LLC in Doha.
+                            </p>
+
+                            <div className="mt-6 flex flex-wrap gap-2">
+                                {highlights.map((item) => (
+                                    <span
+                                        key={item}
+                                        className="rounded-full border border-[var(--border)] bg-[var(--surface-soft)] px-4 py-2 text-xs font-semibold text-[var(--text)]"
+                                    >
+                                        {item}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                                <GradientButton href="/about">More About Me</GradientButton>
+                                <GradientButton href="/cv" variant="secondary">
+                                    Download CV
+                                </GradientButton>
+                            </div>
+                        </div>
+                    </div>
+                </Container>
+            </section>
+        );
+    }
 
     return (
         <section id="about" className="py-16 sm:py-24">
@@ -65,7 +109,7 @@ export default function AboutPreview({ compact = false }: AboutPreviewProps) {
                 <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                     <div data-gsap-reveal>
                         <SectionHeading
-                            eyebrow={compact ? "About Me" : "Who I Am"}
+                            eyebrow="Who I Am"
                             title="I build full stack products that feel premium, clean, and intentional."
                             description="I combine premium frontend craft with solid backend engineering: responsive UI, smooth animation, and reliable APIs behind it."
                             align="left"
@@ -98,27 +142,16 @@ export default function AboutPreview({ compact = false }: AboutPreviewProps) {
                             </div>
 
                             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                                {compact ? (
-                                    <>
-                                        <GradientButton href="/about">More About Me</GradientButton>
-                                        <GradientButton href="/cv" variant="secondary">
-                                            Download CV
-                                        </GradientButton>
-                                    </>
-                                ) : (
-                                    <>
-                                        <GradientButton href="/cv">Download CV</GradientButton>
-                                        <GradientButton href="/contact" variant="secondary">
-                                            Work With Me
-                                        </GradientButton>
-                                    </>
-                                )}
+                                <GradientButton href="/cv">Download CV</GradientButton>
+                                <GradientButton href="/contact" variant="secondary">
+                                    Work With Me
+                                </GradientButton>
                             </div>
                         </div>
                     </div>
 
                     <div className="grid gap-5 sm:grid-cols-2" data-gsap-stagger>
-                        {items.map((card) => {
+                        {cards.map((card) => {
                             const Icon = card.icon;
 
                             return (
