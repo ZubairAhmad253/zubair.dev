@@ -496,7 +496,7 @@ export default function Hero() {
                             aria-label="3 of 3: Projects"
                         >
                             <div className="slide-stagger text-center lg:text-left">
-                                <Badge>{projects.length}+ live projects shipped</Badge>
+                                <Badge>30+ websites delivered</Badge>
 
                                 <h2 className={titleClass}>
                                     Websites built for{" "}

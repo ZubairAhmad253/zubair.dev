@@ -1,13 +1,12 @@
 import { Layers3, MapPin, Rocket, Server } from "lucide-react";
 import Container from "@/components/ui/Container";
-import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 
 const stats = [
     {
         icon: Rocket,
-        value: `${projects.length}+`,
-        label: "Live projects shipped",
+        value: "30+",
+        label: "Websites delivered",
     },
     {
         icon: Layers3,
