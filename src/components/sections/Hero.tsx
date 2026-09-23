@@ -81,7 +81,7 @@ function Badge({ children, live, hero }: { children: React.ReactNode; live?: boo
 }
 
 const titleClass =
-    "font-heading text-3xl font-black tracking-tight text-[var(--text)] sm:text-4xl lg:text-5xl xl:text-6xl";
+    "font-display text-[1.6rem] text-[var(--text)] sm:text-3xl lg:text-4xl xl:text-[2.85rem]";
 const textClass = "mx-auto mt-6 max-w-2xl text-base leading-8 text-[var(--muted)] sm:text-lg lg:mx-0";
 const buttonsClass = "mt-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start";
 const tagsClass = "mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:justify-start";

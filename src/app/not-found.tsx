@@ -17,11 +17,11 @@ export default function NotFound() {
                                     <Compass className="h-7 w-7 text-white" />
                                 </div>
 
-                                <p className="font-heading text-7xl font-black tracking-tight sm:text-8xl">
+                                <p className="font-display text-6xl sm:text-7xl">
                                     <span className="rainbow-text">404</span>
                                 </p>
 
-                                <h1 className="mt-4 font-heading text-3xl font-black text-[var(--text)] sm:text-4xl">
+                                <h1 className="mt-4 font-display text-2xl text-[var(--text)] sm:text-3xl">
                                     This page got lost.
                                 </h1>
 

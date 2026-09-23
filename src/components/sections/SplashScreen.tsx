@@ -158,7 +158,7 @@ export default function SplashScreen() {
                         {/* Name, letter by letter */}
                         <h1
                             aria-label={NAME}
-                            className="relative mt-9 flex h-12 items-center font-heading text-4xl font-black leading-none tracking-tight text-[var(--text)] sm:h-14 sm:text-5xl"
+                            className="relative mt-9 flex h-12 items-center font-display text-[1.7rem] leading-none text-[var(--text)] sm:h-14 sm:text-4xl"
                         >
                             {NAME.split("").map((char, index) => (
                                 <motion.span

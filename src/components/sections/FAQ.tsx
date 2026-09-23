@@ -40,7 +40,7 @@ export default function FAQ() {
     return (
         <section id="faq" className="py-16 sm:py-24">
             <Container>
-                <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+                <div className="grid gap-12 [&>*]:min-w-0 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
                     <div data-gsap-reveal className="lg:sticky lg:top-32">
                         <SectionHeading
                             eyebrow="FAQ"

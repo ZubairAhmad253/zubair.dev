@@ -110,6 +110,15 @@
   font-family: var(--font-sora), sans-serif;
 }
 
+/* Michroma has a single weight and is already wide: keep it regular with
+   slightly open spacing (overrides font-black / tracking-tight utilities) */
+.font-display {
+  font-family: var(--font-display), var(--font-sora), sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 1.22;
+}
+
 .font-code {
   font-family: var(--font-mono), monospace;
 }

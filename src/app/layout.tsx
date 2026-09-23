@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Plus_Jakarta_Sans, Sora } from "next/font/google";
+import { JetBrains_Mono, Michroma, Plus_Jakarta_Sans, Sora } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/providers/ThemeProvider";
 import GSAPProvider from "@/components/providers/GSAPProvider";
@@ -7,6 +7,13 @@ import GSAPProvider from "@/components/providers/GSAPProvider";
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-body",
+});
+
+// Wide, futuristic display font for page and section headings
+const michroma = Michroma({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-display",
 });
 
 const sora = Sora({
@@ -48,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${jakarta.variable} ${sora.variable} ${jetBrainsMono.variable}`}
+        className={`${jakarta.variable} ${sora.variable} ${michroma.variable} ${jetBrainsMono.variable}`}
       >
         <ThemeProvider>
           <GSAPProvider>

@@ -55,7 +55,7 @@ export default function ContactPage() {
 
             <section className="pb-16 sm:pb-24">
                 <Container>
-                    <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.3fr_0.7fr]">
+                    <div className="mx-auto grid max-w-6xl gap-8 [&>*]:min-w-0 lg:grid-cols-[1.3fr_0.7fr]">
                         <div className="rainbow-border rounded-[2.4rem]" data-gsap-reveal>
                             <div className="h-full rounded-[2.35rem] bg-[var(--surface)] p-6 shadow-[var(--shadow-glow)] sm:p-8">
                                 <p className="font-code text-xs uppercase tracking-[0.3em] text-[var(--muted)]">
@@ -69,7 +69,7 @@ export default function ContactPage() {
                             </div>
                         </div>
 
-                        <aside className="grid content-start gap-5" data-gsap-stagger>
+                        <aside className="grid content-start gap-5 [&>*]:min-w-0" data-gsap-stagger>
                             {channels.map((channel) => {
                                 const Icon = channel.icon;
 
