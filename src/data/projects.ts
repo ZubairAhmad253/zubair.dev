@@ -95,6 +95,31 @@ export const projects: ProjectData[] = [
     liveUrl: "https://www.bloomcypher.com",
   },
   {
+    slug: "yel-landscaping",
+    title: "Y.E.L Landscaping — Landscaping & Interlocking Website",
+    category: "Business / Home Services",
+    image: "/images/projects/yel.webp",
+    description:
+      "A multi-page website for Y.E.L Landscaping & Interlocking — showcasing patios, driveways, landscape design, lighting, pools and carpentry, with a project gallery, reviews and quote requests.",
+    problem:
+      "A landscaping company needed a website that shows the quality of its outdoor work and turns homeowners into quote requests.",
+    solution:
+      "Built a React + Vite site with a bold image hero, service pages for every offering, a gallery of recent projects, a testimonial slider, and clear 'Get a Quote' calls to action.",
+    overview:
+      "Y.E.L creates beautiful outdoor spaces — interlocking patios and driveways, landscape design and lighting, pool and patio design, and carpentry. The website presents every service on its own page, proves the quality with a project gallery and client reviews, and makes it easy to ask for a quote.",
+    features: [
+      "Full-screen image hero with quote and services calls to action",
+      "Dedicated pages for each service",
+      "About, team and service areas pages",
+      "Gallery of latest landscape projects",
+      "Testimonial slider with client reviews",
+      "Blog, contact and privacy policy pages",
+      "Mobile menu and fully responsive layout",
+    ],
+    tech: ["React", "Vite", "Tailwind CSS", "Swiper", "Responsive UI"],
+    liveUrl: "https://yel-frontend-main.vercel.app",
+  },
+  {
     slug: "nexora",
     title: "Nexora — Premium Portfolio Template",
     category: "Portfolio Template",

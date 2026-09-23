@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/site";
 import Link from "next/link";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import PageShell from "@/components/layout/PageShell";
 import PageHero from "@/components/ui/PageHero";
@@ -15,7 +15,7 @@ import { projects } from "@/data/projects";
 export const metadata: Metadata = pageMeta({
     title: "Projects",
     description:
-        "Selected projects by Zubair Ahmad: Alright Tech, BadrGo, Bloom Cypher and Nexora — company websites, platforms and templates, with case studies.",
+        "Selected projects by Zubair Ahmad: Alright Tech, BadrGo, Bloom Cypher, Y.E.L Landscaping and Nexora — company websites, platforms and templates, with case studies.",
     path: "/projects",
 });
 
@@ -127,9 +127,8 @@ export default function ProjectsPage() {
                             Want something like this for your business?
                         </p>
                         <div className="mt-5 flex justify-center">
-                            <GradientButton href="/contact">
+                            <GradientButton href="/contact" magnetic>
                                 Start a Project
-                                <ArrowUpRight className="h-4 w-4 shrink-0" />
                             </GradientButton>
                         </div>
                     </div>
