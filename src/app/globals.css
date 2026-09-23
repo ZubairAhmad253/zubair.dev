@@ -110,7 +110,7 @@
   font-family: var(--font-sora), sans-serif;
 }
 
-/* Michroma has a single weight and is already wide: keep it regular with
+/* Varino has a single weight and is already wide: keep it regular with
    slightly open spacing (overrides font-black / tracking-tight utilities) */
 .font-display {
   font-family: var(--font-display), var(--font-sora), sans-serif;
@@ -360,3 +360,88 @@ section {
     transform: scaleX(1);
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Hero slides — each slide has its own entrance                        */
+/* ------------------------------------------------------------------ */
+
+.hero-slide {
+  transition:
+    opacity 0.7s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s ease;
+}
+
+.hero-slide[data-active="false"] {
+  opacity: 0;
+}
+
+/* Slide 1: slides in from the side */
+.hero-slide--slide[data-active="false"] {
+  transform: translateX(-8%);
+}
+
+/* Slide 2: zooms in out of a blur */
+.hero-slide--zoom[data-active="false"] {
+  transform: scale(0.88);
+  filter: blur(14px);
+}
+
+/* Slide 3: rises and tilts up in 3D */
+.hero-slide--rise[data-active="false"] {
+  transform: perspective(1200px) translateY(70px) rotateX(14deg);
+}
+
+/* Text lines appear one after another */
+.slide-stagger > * {
+  transition:
+    opacity 0.6s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-active="false"] .slide-stagger > * {
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+[data-active="true"] .slide-stagger > :nth-child(1) { transition-delay: 0.15s; }
+[data-active="true"] .slide-stagger > :nth-child(2) { transition-delay: 0.25s; }
+[data-active="true"] .slide-stagger > :nth-child(3) { transition-delay: 0.35s; }
+[data-active="true"] .slide-stagger > :nth-child(4) { transition-delay: 0.45s; }
+[data-active="true"] .slide-stagger > :nth-child(5) { transition-delay: 0.55s; }
+
+/* Slide 2 image wipes open from the left */
+.slide-wipe {
+  clip-path: inset(0 0 0 0 round 2rem);
+  transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.18, 1) 0.25s;
+}
+
+[data-active="false"] .slide-wipe {
+  clip-path: inset(0 100% 0 0 round 2rem);
+  transition-delay: 0s;
+}
+
+/* Slide 3 screenshots fly in from different directions */
+.slide-collage > * {
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s ease;
+}
+
+[data-active="false"] .slide-collage > :nth-child(1) {
+  opacity: 0;
+  transform: translate(-50px, -30px) rotate(-8deg);
+}
+
+[data-active="false"] .slide-collage > :nth-child(2) {
+  opacity: 0;
+  transform: translate(60px, 10px) rotate(7deg);
+}
+
+[data-active="false"] .slide-collage > :nth-child(3) {
+  opacity: 0;
+  transform: translate(-10px, 60px) rotate(-4deg);
+}
+
+[data-active="true"] .slide-collage > :nth-child(2) { transition-delay: 0.12s; }
+[data-active="true"] .slide-collage > :nth-child(3) { transition-delay: 0.24s; }

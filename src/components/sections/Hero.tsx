@@ -65,7 +65,7 @@ function Badge({ children, live, hero }: { children: React.ReactNode; live?: boo
     return (
         <div
             data-hero={hero ? "badge" : undefined}
-            className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-semibold text-[var(--muted)] shadow-[var(--shadow-soft)] lg:mx-0"
+            className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-semibold text-[var(--muted)] shadow-[var(--shadow-soft)] lg:mx-0"
         >
             {live ? (
                 <span className="relative flex h-2 w-2">
@@ -81,10 +81,10 @@ function Badge({ children, live, hero }: { children: React.ReactNode; live?: boo
 }
 
 const titleClass =
-    "font-display text-[1.6rem] text-[var(--text)] sm:text-3xl lg:text-4xl xl:text-[2.85rem]";
-const textClass = "mx-auto mt-6 max-w-2xl text-base leading-8 text-[var(--muted)] sm:text-lg lg:mx-0";
-const buttonsClass = "mt-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start";
-const tagsClass = "mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:justify-start";
+    "font-display text-[1.6rem] text-[var(--text)] sm:text-3xl lg:text-[1.95rem] xl:text-[2.15rem]";
+const textClass = "mx-auto mt-5 max-w-2xl text-base leading-8 text-[var(--muted)] lg:mx-0";
+const buttonsClass = "mt-7 flex flex-col items-center gap-4 sm:flex-row lg:items-start";
+const tagsClass = "mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:justify-start";
 
 export default function Hero() {
     const heroRef = useRef<HTMLDivElement>(null);
@@ -112,7 +112,12 @@ export default function Hero() {
             const q = (name: string) => `[data-hero="${name}"]`;
             const tl = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
 
-            tl.fromTo(q("badge"), { autoAlpha: 0, y: -16 }, { autoAlpha: 1, y: 0, duration: 0.6 })
+            tl.fromTo(
+                q("frame"),
+                { autoAlpha: 0, y: 40, scale: 0.97 },
+                { autoAlpha: 1, y: 0, scale: 1, duration: 1, clearProps: "transform" }
+            )
+                .fromTo(q("badge"), { autoAlpha: 0, y: -16 }, { autoAlpha: 1, y: 0, duration: 0.6 }, 0.25)
                 .fromTo(
                     q("word"),
                     { autoAlpha: 0, y: 50, rotateX: -70, filter: "blur(8px)" },
@@ -182,22 +187,21 @@ export default function Hero() {
         }
     };
 
+    // Slide 1 slides in, slide 2 zooms out of a blur, slide 3 rises in 3D
+    const slideEffects = ["hero-slide--slide", "hero-slide--zoom", "hero-slide--rise"];
+
     const slideClass = (index: number) =>
         cn(
-            "col-start-1 row-start-1 grid items-center gap-10 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] lg:grid-cols-[1.05fr_0.95fr] lg:gap-14",
-            index === active
-                ? "opacity-100 translate-x-0"
-                : cn(
-                    "pointer-events-none opacity-0",
-                    index < active ? "-translate-x-10" : "translate-x-10"
-                )
+            "hero-slide col-start-1 row-start-1 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12",
+            slideEffects[index],
+            index !== active && "pointer-events-none"
         );
 
     return (
         <section
             id="home"
             ref={heroRef}
-            className="relative overflow-hidden pt-20 sm:pt-36 lg:min-h-screen lg:pt-36"
+            className="relative overflow-hidden pt-8 sm:pt-10 lg:pt-8"
         >
             <Container>
                 <div
@@ -210,10 +214,47 @@ export default function Hero() {
                         if (event.key === "ArrowRight") next();
                         if (event.key === "ArrowLeft") prev();
                     }}
-                    className="flex flex-col lg:min-h-[calc(100vh-12rem)] lg:justify-center"
+                    className="flex flex-col"
                 >
+                    <div data-hero="frame" className="rainbow-border rounded-[2.5rem] shadow-[var(--shadow-glow)]">
+                        <div className="relative overflow-hidden rounded-[2.45rem] bg-[var(--surface)]/85 backdrop-blur-xl">
+                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-cyan-400/5 via-fuchsia-500/5 to-orange-400/5" />
+
+                            {/* Top bar: slide counter + arrows */}
+                            <div className="relative flex items-center justify-between gap-4 border-b border-[var(--border)] px-5 py-3.5 sm:px-8">
+                                <div className="flex min-w-0 items-center gap-3">
+                                    <span className="font-code text-sm font-bold tabular-nums text-[var(--text)]">
+                                        {String(active + 1).padStart(2, "0")}
+                                        <span className="font-normal text-[var(--muted)]"> / {String(slides.length).padStart(2, "0")}</span>
+                                    </span>
+                                    <span className="h-4 w-px bg-[var(--border-strong)]" />
+                                    <span className="truncate font-code text-[11px] uppercase tracking-[0.25em] text-[var(--muted)]">
+                                        {slides[active].label}
+                                    </span>
+                                </div>
+
+                                <div className="flex shrink-0 items-center gap-2">
+                                    <button
+                                        type="button"
+                                        onClick={prev}
+                                        aria-label="Previous slide"
+                                        className="grid h-10 w-10 place-items-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-[var(--shadow-soft)] transition hover:shadow-[var(--shadow-glow)] active:scale-95"
+                                    >
+                                        <ChevronLeft className="h-5 w-5" />
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={next}
+                                        aria-label="Next slide"
+                                        className="grid h-10 w-10 place-items-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-[var(--shadow-soft)] transition hover:shadow-[var(--shadow-glow)] active:scale-95"
+                                    >
+                                        <ChevronRight className="h-5 w-5" />
+                                    </button>
+                                </div>
+                            </div>
+
                     <div
-                        className="grid touch-pan-y"
+                        className="relative grid touch-pan-y px-5 py-8 sm:px-8 sm:py-9 lg:px-12 lg:py-9"
                         onPointerDown={onPointerDown}
                         onPointerUp={onPointerUp}
                         onPointerCancel={() => (pointerStart.current = null)}
@@ -221,6 +262,7 @@ export default function Hero() {
                         {/* ---------- Slide 1: introduction ---------- */}
                         <div
                             className={slideClass(0)}
+                            data-active={active === 0}
                             aria-hidden={active !== 0}
                             inert={active !== 0}
                             aria-roledescription="slide"
@@ -322,12 +364,13 @@ export default function Hero() {
                         {/* ---------- Slide 2: experience ---------- */}
                         <div
                             className={slideClass(1)}
+                            data-active={active === 1}
                             aria-hidden={active !== 1}
                             inert={active !== 1}
                             aria-roledescription="slide"
                             aria-label="2 of 3: Experience"
                         >
-                            <div className="text-center lg:text-left">
+                            <div className="slide-stagger text-center lg:text-left">
                                 <Badge live>Currently working · Badr Technology LLC</Badge>
 
                                 <h2 className={titleClass}>
@@ -354,7 +397,7 @@ export default function Hero() {
                                 </div>
                             </div>
 
-                            <div className="relative mx-auto w-full max-w-lg">
+                            <div className="slide-wipe relative mx-auto w-full max-w-lg">
                                 <div className="rainbow-border rounded-[2rem]">
                                     <div className="relative overflow-hidden rounded-[1.95rem] bg-[var(--surface)] p-2 sm:p-3">
                                         <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem]">
@@ -391,12 +434,13 @@ export default function Hero() {
                         {/* ---------- Slide 3: projects ---------- */}
                         <div
                             className={slideClass(2)}
+                            data-active={active === 2}
                             aria-hidden={active !== 2}
                             inert={active !== 2}
                             aria-roledescription="slide"
                             aria-label="3 of 3: Projects"
                         >
-                            <div className="text-center lg:text-left">
+                            <div className="slide-stagger text-center lg:text-left">
                                 <Badge>{projects.length}+ live projects shipped</Badge>
 
                                 <h2 className={titleClass}>
@@ -424,7 +468,7 @@ export default function Hero() {
                             </div>
 
                             {/* Screenshot collage */}
-                            <div className="relative mx-auto aspect-[5/4] w-full max-w-lg">
+                            <div className="slide-collage relative mx-auto aspect-[5/4] w-full max-w-lg">
                                 {showcase.map((project, index) => (
                                     <Link
                                         key={project.slug}
@@ -454,20 +498,27 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    {/* ---------- Controls + socials ---------- */}
+                            {/* Progress line — reaching the end moves to the next slide */}
+                            <div className="absolute inset-x-0 bottom-0 h-1 bg-[var(--border)]">
+                                <span
+                                    key={active}
+                                    onAnimationEnd={next}
+                                    className="rainbow-bg block h-full origin-left"
+                                    style={{
+                                        animation: `heroProgress ${SLIDE_MS}ms linear forwards`,
+                                        animationPlayState: paused ? "paused" : "running",
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* ---------- Slide tabs + socials ---------- */}
                     <div
                         data-hero="controls"
-                        className="mt-10 flex flex-col items-center justify-between gap-6 lg:flex-row"
+                        className="mt-6 flex flex-col items-center justify-between gap-5 lg:flex-row"
                     >
                         <div className="flex items-center gap-3">
-                            <button
-                                type="button"
-                                onClick={prev}
-                                aria-label="Previous slide"
-                                className="grid h-11 w-11 place-items-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-[var(--shadow-soft)] transition hover:shadow-[var(--shadow-glow)] active:scale-95"
-                            >
-                                <ChevronLeft className="h-5 w-5" />
-                            </button>
 
                             <div className="flex items-center gap-2">
                                 {slides.map((slide, index) => {
@@ -492,34 +543,10 @@ export default function Hero() {
                                             <span className={cn(current ? "inline" : "hidden sm:inline")}>
                                                 {slide.label}
                                             </span>
-
-                                            {/* Progress bar — reaching the end moves to the next slide */}
-                                            {current && (
-                                                <span className="absolute inset-x-0 bottom-0 h-[3px] bg-[var(--border)]">
-                                                    <span
-                                                        key={active}
-                                                        onAnimationEnd={next}
-                                                        className="rainbow-bg block h-full origin-left"
-                                                        style={{
-                                                            animation: `heroProgress ${SLIDE_MS}ms linear forwards`,
-                                                            animationPlayState: paused ? "paused" : "running",
-                                                        }}
-                                                    />
-                                                </span>
-                                            )}
                                         </button>
                                     );
                                 })}
                             </div>
-
-                            <button
-                                type="button"
-                                onClick={next}
-                                aria-label="Next slide"
-                                className="grid h-11 w-11 place-items-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-[var(--shadow-soft)] transition hover:shadow-[var(--shadow-glow)] active:scale-95"
-                            >
-                                <ChevronRight className="h-5 w-5" />
-                            </button>
                         </div>
 
                         <div className="flex flex-wrap items-center justify-center gap-3">
