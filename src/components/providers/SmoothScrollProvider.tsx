@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { hasSplashPlayed, onSplashDone } from "@/lib/splash";
+import { hasSplashPlayed, onSplashDone, skipSplash } from "@/lib/splash";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,6 +22,11 @@ export function scrollToTop() {
 export default function SmoothScrollProvider({ children }: { children: ReactNode }) {
     const pathname = usePathname();
 
+    // The splash is a welcome for visits that start on the home page only
+    useEffect(() => {
+        if (window.location.pathname !== "/") skipSplash();
+    }, []);
+
     useEffect(() => {
         // Mouse/trackpad only: phones keep native momentum scrolling (and save battery)
         if (!window.matchMedia("(pointer: fine) and (prefers-reduced-motion: no-preference)").matches) return;
@@ -35,15 +40,19 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
         gsap.ticker.add(tick);
         gsap.ticker.lagSmoothing(0);
 
-        // Don't scroll behind the splash screen
+        // Don't scroll behind the splash screen. The splash only exists on the home page,
+        // so other pages must never wait for it — and a safety timer always releases scrolling.
         let stopWaiting = () => {};
-        if (!hasSplashPlayed()) {
+        let safety = 0;
+        if (window.location.pathname === "/" && !hasSplashPlayed()) {
             instance.stop();
             stopWaiting = onSplashDone(() => instance.start());
+            safety = window.setTimeout(() => instance.start(), 5000);
         }
 
         return () => {
             stopWaiting();
+            window.clearTimeout(safety);
             gsap.ticker.remove(tick);
             instance.destroy();
             lenis = null;
