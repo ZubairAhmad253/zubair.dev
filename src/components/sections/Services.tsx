@@ -1,56 +1,9 @@
 "use client";
 
-import {
-    LayoutGrid,
-    Layers3,
-    Building2,
-    Sparkles,
-    Wand2,
-    MonitorSmartphone,
-} from "lucide-react";
-
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GradientButton from "@/components/ui/GradientButton";
-
-const services = [
-    {
-        icon: LayoutGrid,
-        title: "Portfolio Websites",
-        desc: "Modern personal portfolio websites designed to showcase your work and attract clients.",
-        features: ["Premium UI", "Responsive", "Fast loading"],
-    },
-    {
-        icon: Layers3,
-        title: "SaaS Landing Pages",
-        desc: "Clean, high-converting landing pages for startups and SaaS products.",
-        features: ["Conversion-focused", "Modern layout", "Scalable design"],
-    },
-    {
-        icon: Building2,
-        title: "Business Websites",
-        desc: "Professional business websites that build trust and communicate clearly.",
-        features: ["Clean structure", "Mobile-first", "SEO-friendly"],
-    },
-    {
-        icon: Sparkles,
-        title: "UI/UX Enhancement",
-        desc: "Upgrade your existing website with better design and visual quality.",
-        features: ["Better spacing", "Modern feel", "Improved UI"],
-    },
-    {
-        icon: Wand2,
-        title: "Animation & Interaction",
-        desc: "Smooth animations using GSAP and modern frontend techniques.",
-        features: ["Scroll animations", "Micro-interactions", "Smooth UX"],
-    },
-    {
-        icon: MonitorSmartphone,
-        title: "Responsive Optimization",
-        desc: "Ensure your website works perfectly across all devices.",
-        features: ["Mobile optimized", "Cross-browser", "Performance"],
-    },
-];
+import { services } from "@/data/services";
 
 export default function Services() {
     return (
@@ -116,6 +69,7 @@ export default function Services() {
                                         {/* BUTTON FIXED */}
                                         <div className="mt-7">
                                             <GradientButton
+                                                href={`/services/${service.slug}`}
                                                 variant="secondary"
                                                 className="w-full !py-3 !px-5"
                                                 icon={false}

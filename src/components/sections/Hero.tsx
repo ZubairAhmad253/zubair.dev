@@ -114,7 +114,7 @@ export default function Hero() {
                             className="mt-9 flex flex-col items-center gap-4 sm:flex-row lg:items-start"
                         >
                             <GradientButton href="#projects">View Projects</GradientButton>
-                            <GradientButton href="#contact" variant="secondary">
+                            <GradientButton href="/contact" variant="secondary">
                                 Hire Me
                             </GradientButton>
                         </div>

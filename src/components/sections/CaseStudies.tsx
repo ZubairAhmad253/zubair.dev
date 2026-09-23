@@ -1,37 +1,12 @@
 "use client";
 
-import { ArrowUpRight, Layers3, Palette, Rocket } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";
 import GradientButton from "@/components/ui/GradientButton";
+import { caseStudies } from "@/data/caseStudies";
 
-const caseStudies = [
-    {
-        icon: Palette,
-        title: "Premium Portfolio Experience",
-        challenge: "Turn a simple developer profile into a strong personal brand.",
-        solution:
-            "Built a luxury landing experience with gradient identity, animated sections, and clear hire-me messaging.",
-        result: "More professional impression for recruiters and clients.",
-    },
-    {
-        icon: Layers3,
-        title: "SaaS Landing Page UI",
-        challenge: "Create a homepage that explains product value quickly.",
-        solution:
-            "Designed strong hero copy, feature cards, pricing layout, and smooth scroll animations.",
-        result: "Cleaner product story and higher conversion-focused layout.",
-    },
-    {
-        icon: Rocket,
-        title: "Business Website Redesign",
-        challenge: "Replace an outdated website with a modern responsive version.",
-        solution:
-            "Improved spacing, typography, mobile layout, visual hierarchy, and call-to-actions.",
-        result: "Better trust, better mobile experience, and faster navigation.",
-    },
-];
 
 export default function CaseStudies() {
     return (
@@ -98,7 +73,12 @@ export default function CaseStudies() {
                                     </div>
 
                                     <div className="mt-7">
-                                        <GradientButton variant="secondary" icon={false} className="w-full">
+                                        <GradientButton
+                                            href={`/case-studies/${item.slug}`}
+                                            variant="secondary"
+                                            icon={false}
+                                            className="w-full"
+                                        >
                                             View thinking
                                             <ArrowUpRight className="h-4 w-4 shrink-0" />
                                         </GradientButton>

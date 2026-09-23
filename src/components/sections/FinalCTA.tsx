@@ -49,6 +49,10 @@ export default function FinalCTA() {
                                     <MessageCircle className="h-4 w-4 shrink-0" />
                                     WhatsApp
                                 </GradientButton>
+
+                                <GradientButton href="/contact" variant="secondary">
+                                    Project Form
+                                </GradientButton>
                             </div>
                         </div>
                     </div>

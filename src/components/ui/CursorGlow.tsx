@@ -59,7 +59,7 @@ export default function CursorGlow() {
                 y: smoothY,
                 opacity: visible ? 0.42 : 0,
             }}
-            className="pointer-events-none fixed left-0 top-0 z-0 hidden h-[420px] w-[420px] rounded-full blur-[120px] lg:block"
+            className="pointer-events-none fixed left-0 top-0 z-0 hidden h-[420px] w-[420px] rounded-full blur-[120px] lg:block print:hidden"
         >
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/30 via-fuchsia-500/25 to-orange-400/25" />
             <div className="absolute inset-10 rounded-full bg-white/10 blur-2xl" />

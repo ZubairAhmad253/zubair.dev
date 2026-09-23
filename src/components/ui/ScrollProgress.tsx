@@ -15,7 +15,7 @@ export default function ScrollProgress() {
         <motion.div
             aria-hidden="true"
             style={{ scaleX }}
-            className="fixed left-0 top-0 z-[90] h-1 w-full origin-left rainbow-bg shadow-[var(--shadow-glow)]"
+            className="fixed left-0 top-0 z-[90] h-1 w-full origin-left rainbow-bg shadow-[var(--shadow-glow)] print:hidden"
         />
     );
 }

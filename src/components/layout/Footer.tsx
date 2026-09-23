@@ -7,14 +7,16 @@ import Container from "@/components/ui/Container";
 import GradientButton from "@/components/ui/GradientButton";
 
 const footerLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Services", href: "#services" },
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Process", href: "#process" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/#home" },
+    { label: "About", href: "/#about" },
+    { label: "Experience", href: "/#experience" },
+    { label: "Services", href: "/#services" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Skills", href: "/#skills" },
+    { label: "Process", href: "/#process" },
+    { label: "All Projects", href: "/projects" },
+    { label: "My CV", href: "/cv" },
+    { label: "Contact", href: "/contact" },
 ];
 
 const services = [
@@ -52,11 +54,11 @@ const socials = [
 
 export default function Footer() {
     return (
-        <footer className="border-t border-[var(--border)] bg-[var(--surface)]/70 py-12 backdrop-blur-xl">
+        <footer className="border-t border-[var(--border)] bg-[var(--surface)]/70 py-12 backdrop-blur-xl print:hidden">
             <Container>
                 <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
                     <div>
-                        <Link href="#home" className="inline-flex items-center gap-3">
+                        <Link href="/" className="inline-flex items-center gap-3">
                             <span className="rainbow-bg grid h-12 w-12 place-items-center rounded-2xl shadow-[var(--shadow-glow)]">
                                 <span className="font-heading text-xl font-black text-white">
                                     Z

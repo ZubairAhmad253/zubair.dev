@@ -11,6 +11,7 @@ import {
 import Container from "@/components/ui/Container";
 import GlassCard from "@/components/ui/GlassCard";
 import SectionHeading from "@/components/ui/SectionHeading";
+import GradientButton from "@/components/ui/GradientButton";
 
 const cards = [
     {
@@ -89,6 +90,13 @@ export default function AboutPreview() {
                                         </div>
                                     </div>
                                 ))}
+                            </div>
+
+                            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                                <GradientButton href="/cv">Download CV</GradientButton>
+                                <GradientButton href="/contact" variant="secondary">
+                                    Work With Me
+                                </GradientButton>
                             </div>
                         </div>
                     </div>

@@ -150,11 +150,18 @@ export default function FeaturedProjects() {
                                         </div>
 
                                         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                                            <GradientButton variant="primary">
+                                            <GradientButton
+                                                href={`/projects/${project.slug}`}
+                                                variant="primary"
+                                            >
                                                 View Case Study
                                             </GradientButton>
 
-                                            <GradientButton variant="secondary" icon={false}>
+                                            <GradientButton
+                                                href={project.liveUrl}
+                                                variant="secondary"
+                                                icon={false}
+                                            >
                                                 <ExternalLink className="h-4 w-4 shrink-0" />
                                                 Live Preview
                                             </GradientButton>
@@ -164,6 +171,12 @@ export default function FeaturedProjects() {
                             </article>
                         );
                     })}
+                </div>
+
+                <div className="mt-12 flex justify-center">
+                    <GradientButton href="/projects" variant="secondary">
+                        View All Projects
+                    </GradientButton>
                 </div>
             </Container>
         </section>

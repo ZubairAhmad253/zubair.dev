@@ -153,7 +153,7 @@ export default function BeforeAfter() {
                                 </div>
 
                                 <div className="mt-7">
-                                    <GradientButton href="#contact" className="w-full">
+                                    <GradientButton href="/contact" className="w-full">
                                         Hire Me for Redesign
                                     </GradientButton>
                                 </div>

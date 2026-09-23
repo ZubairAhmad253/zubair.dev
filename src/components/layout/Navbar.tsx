@@ -9,13 +9,13 @@ import ThemeToggle from "@/components/ui/ThemeToggle";
 import GradientButton from "@/components/ui/GradientButton";
 
 const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Services", href: "#services" },
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/#home" },
+    { label: "About", href: "/#about" },
+    { label: "Experience", href: "/#experience" },
+    { label: "Services", href: "/#services" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Skills", href: "/#skills" },
+    { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -31,7 +31,7 @@ export default function Navbar() {
     }, []);
 
     return (
-        <header className="sticky top-0 z-[80] w-full px-3 pt-4 sm:px-5">
+        <header className="sticky top-0 z-[80] w-full px-3 pt-4 sm:px-5 print:hidden">
             <Container>
                 <motion.nav
                     initial={{ opacity: 0, y: -18 }}
@@ -44,7 +44,7 @@ export default function Navbar() {
                 >
                     <div className="flex items-center justify-between rounded-full border border-[var(--border)] bg-[var(--surface)]/90 px-4 py-3 backdrop-blur-2xl">
                         <Link
-                            href="#home"
+                            href="/"
                             onClick={() => setOpen(false)}
                             className="flex items-center gap-3"
                         >
@@ -80,7 +80,7 @@ export default function Navbar() {
                             <ThemeToggle />
 
                             <div className="hidden sm:block">
-                                <GradientButton href="#contact" icon={false}>
+                                <GradientButton href="/contact" icon={false}>
                                     Hire Me
                                 </GradientButton>
                             </div>
@@ -120,7 +120,7 @@ export default function Navbar() {
 
                                 <div className="pt-2 sm:hidden">
                                     <GradientButton
-                                        href="#contact"
+                                        href="/contact"
                                         className="w-full"
                                         icon={false}
                                     >
