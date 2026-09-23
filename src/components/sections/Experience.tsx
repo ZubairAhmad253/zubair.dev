@@ -1,5 +1,3 @@
-"use client";
-
 import { BriefcaseBusiness, CalendarDays, CheckCircle2, MapPin } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";

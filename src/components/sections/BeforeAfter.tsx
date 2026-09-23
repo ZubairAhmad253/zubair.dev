@@ -1,5 +1,3 @@
-"use client";
-
 import {
     ArrowRight,
     CheckCircle2,
@@ -62,7 +60,7 @@ export default function BeforeAfter() {
 
                             <ImageReveal
                                 reveal
-                                src="/images/projects/before.png"
+                                src="/images/projects/before.webp"
                                 alt="Before website redesign"
                                 className="aspect-video rounded-[1.6rem]"
                                 imageClassName="object-cover object-center"
@@ -113,7 +111,7 @@ export default function BeforeAfter() {
 
                                 <ImageReveal
                                     reveal
-                                    src="/images/projects/after.png"
+                                    src="/images/projects/after.webp"
                                     alt="After website redesign"
                                     className="aspect-video rounded-[1.6rem]"
                                     imageClassName="object-cover object-center"

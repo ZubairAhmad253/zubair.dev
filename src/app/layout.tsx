@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { JetBrains_Mono, Plus_Jakarta_Sans, Sora } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/providers/ThemeProvider";
-import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
-import PageTransitionProvider from "@/components/providers/PageTransitionProvider";
 import GSAPProvider from "@/components/providers/GSAPProvider";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -53,14 +51,10 @@ export default function RootLayout({
         className={`${jakarta.variable} ${sora.variable} ${jetBrainsMono.variable}`}
       >
         <ThemeProvider>
-          <SmoothScrollProvider>
-            <PageTransitionProvider>
-              <GSAPProvider>
-                <div className="site-background" />
-                {children}
-              </GSAPProvider>
-            </PageTransitionProvider>
-          </SmoothScrollProvider>
+          <GSAPProvider>
+            <div className="site-background" />
+            {children}
+          </GSAPProvider>
         </ThemeProvider>
       </body>
     </html>

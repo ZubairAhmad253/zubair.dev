@@ -1,5 +1,3 @@
-"use client";
-
 import { Mail, MessageCircle, Rocket } from "lucide-react";
 import Container from "@/components/ui/Container";
 import GradientButton from "@/components/ui/GradientButton";

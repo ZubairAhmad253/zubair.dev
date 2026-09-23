@@ -13,9 +13,16 @@ const curtainEase = [0.76, 0, 0.24, 1] as const;
 
 export default function SplashScreen() {
     const [show, setShow] = useState(() => !hasSplashPlayed());
-    const [progress, setProgress] = useState(0);
     const [exiting, setExiting] = useState(false);
     const exitStarted = useRef(false);
+    // The loader updates the DOM directly so the splash doesn't re-render every frame
+    const percentRef = useRef<HTMLSpanElement>(null);
+    const barRef = useRef<HTMLDivElement>(null);
+
+    const setProgress = (value: number) => {
+        if (percentRef.current) percentRef.current.textContent = `${value}%`;
+        if (barRef.current) barRef.current.style.width = `${value}%`;
+    };
 
     const startExit = useCallback(() => {
         if (exitStarted.current) return;
@@ -151,7 +158,7 @@ export default function SplashScreen() {
                         {/* Name, letter by letter */}
                         <h1
                             aria-label={NAME}
-                            className="relative mt-9 flex font-heading text-4xl font-black tracking-tight text-[var(--text)] sm:text-5xl"
+                            className="relative mt-9 flex h-12 items-center font-heading text-4xl font-black leading-none tracking-tight text-[var(--text)] sm:h-14 sm:text-5xl"
                         >
                             {NAME.split("").map((char, index) => (
                                 <motion.span
@@ -171,7 +178,7 @@ export default function SplashScreen() {
                             initial={{ opacity: 0, letterSpacing: "0.6em" }}
                             animate={{ opacity: 1, letterSpacing: "0.35em" }}
                             transition={{ delay: 0.9, duration: 0.7, ease: "easeOut" }}
-                            className="relative mt-4 font-code text-xs uppercase text-[var(--muted)]"
+                            className="relative mt-4 h-4 font-code text-xs uppercase leading-4 text-[var(--muted)]"
                         >
                             <span className="rainbow-text font-bold">Full Stack Developer</span>
                         </motion.p>
@@ -183,15 +190,18 @@ export default function SplashScreen() {
                             transition={{ delay: 1, duration: 0.4 }}
                             className="relative mt-10 w-64 sm:w-72"
                         >
-                            <div className="mb-3 flex items-center justify-between font-code text-[11px] uppercase tracking-[0.2em] text-[var(--muted)]">
+                            <div className="mb-3 flex h-4 items-center justify-between font-code text-[11px] uppercase tracking-[0.2em] text-[var(--muted)]">
                                 <span>Loading portfolio</span>
-                                <span className="tabular-nums text-[var(--text)]">{progress}%</span>
+                                <span ref={percentRef} className="tabular-nums text-[var(--text)]">
+                                    0%
+                                </span>
                             </div>
 
                             <div className="h-1.5 overflow-hidden rounded-full bg-[var(--surface-soft)]">
                                 <div
+                                    ref={barRef}
                                     className="rainbow-bg h-full rounded-full"
-                                    style={{ width: `${progress}%` }}
+                                    style={{ width: "0%" }}
                                 />
                             </div>
                         </motion.div>
@@ -200,7 +210,7 @@ export default function SplashScreen() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 1.3, duration: 0.5 }}
-                            className="relative mt-6 text-xs text-[var(--muted)]"
+                            className="relative mt-6 h-4 text-xs leading-4 text-[var(--muted)]"
                         >
                             Tap anywhere to skip
                         </motion.p>

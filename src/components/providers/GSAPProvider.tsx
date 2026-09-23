@@ -85,6 +85,17 @@ export default function GSAPProvider({ children }: { children: ReactNode }) {
             });
         });
 
+        // Pause CSS animations (rainbow gradients etc.) in sections that are off screen
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    entry.target.toggleAttribute("data-offscreen", !entry.isIntersecting);
+                });
+            },
+            { rootMargin: "200px 0px" }
+        );
+        document.querySelectorAll("main section").forEach((section) => observer.observe(section));
+
         // Fonts and images can shift layout after load — recalculate trigger positions
         const refresh = () => ScrollTrigger.refresh();
         window.addEventListener("load", refresh);
@@ -93,6 +104,7 @@ export default function GSAPProvider({ children }: { children: ReactNode }) {
         return () => {
             window.removeEventListener("load", refresh);
             window.clearTimeout(timer);
+            observer.disconnect();
             ctx.revert();
         };
     }, [pathname]);

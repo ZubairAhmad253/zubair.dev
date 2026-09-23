@@ -207,10 +207,6 @@
   background: color-mix(in srgb, var(--surface) 74%, transparent);
 }
 
-[data-gsap-reveal],
-[data-gsap-item] {
-  will-change: transform, opacity, filter;
-}
 
 @keyframes rainbowMove {
   0% {
@@ -336,4 +332,11 @@ section {
   to {
     opacity: 1;
   }
+}
+
+/* Off-screen sections don't need to keep repainting their CSS animations */
+[data-offscreen] *,
+[data-offscreen] *::before,
+[data-offscreen] *::after {
+  animation-play-state: paused !important;
 }

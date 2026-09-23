@@ -3,7 +3,7 @@ export const projects = [
     slug: "nexora",
     title: "Nexora — Premium Portfolio Template",
     category: "Portfolio Template",
-    image: "/images/projects/nexora.png",
+    image: "/images/projects/nexora.webp",
     description:
       "A premium animated portfolio template for developers, freelancers, agencies, and creators who want to sell their services through story, trust, and high-end UI.",
     problem:
@@ -30,7 +30,7 @@ export const projects = [
     slug: "buildnox",
     title: "Buildnox — Construction Company Website",
     category: "Business / Corporate",
-    image: "/images/projects/buildnox.png",
+    image: "/images/projects/buildnox.webp",
     description:
       "A bold, modern website for a construction company with strong typography, service highlights, project showcases, and trust-building sections.",
     problem:
@@ -55,7 +55,7 @@ export const projects = [
     slug: "nexus-aquarium",
     title: "Nexus Aquarium — Attraction Website",
     category: "Tourism / Entertainment",
-    image: "/images/projects/nexus-aquarium.png",
+    image: "/images/projects/nexus-aquarium.webp",
     description:
       "A multi-page React website for an aquarium attraction with an image gallery, animal information, visitor timings, events, and an online booking page.",
     problem:

@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Mail, MessageCircle } from "lucide-react";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";

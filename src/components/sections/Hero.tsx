@@ -277,15 +277,15 @@ export default function Hero() {
                                                 <span className="text-[var(--muted)]">= {"{"}</span>
                                                 {"\n  "}
                                                 <span className="text-orange-400">name</span>:{" "}
-                                                <span className="text-green-400">"Zubair Ahmad"</span>,
+                                                <span className="text-green-400">&quot;Zubair Ahmad&quot;</span>,
                                                 {"\n  "}
                                                 <span className="text-orange-400">role</span>:{" "}
                                                 <span className="text-green-400">
-                                                    "Full Stack Developer"
+                                                    &quot;Full Stack Developer&quot;
                                                 </span>,
                                                 {"\n  "}
                                                 <span className="text-orange-400">stack</span>:{" "}
-                                                <span className="text-green-400">"Node.js + Python"</span>,
+                                                <span className="text-green-400">&quot;Node.js + Python&quot;</span>,
                                                 {"\n"}
                                                 {"};"}
                                             </code>
