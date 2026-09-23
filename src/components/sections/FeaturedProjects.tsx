@@ -34,6 +34,7 @@ export default function FeaturedProjects() {
                             <article
                                 key={project.title}
                                 data-gsap-item
+                                data-spotlight
                                 className="group relative overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--surface)]/75 p-3 shadow-[var(--shadow-soft)] backdrop-blur-2xl transition duration-500 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-glow)] sm:rounded-[2.8rem]"
                             >
                                 <div
@@ -43,7 +44,7 @@ export default function FeaturedProjects() {
                                     ].join(" ")}
                                 >
                                     <div className="relative overflow-hidden p-3 sm:p-6 lg:p-8">
-                                        <div className="rainbow-border rounded-[1.4rem] sm:rounded-[2rem]">
+                                        <div data-gsap-clip className="rainbow-border rounded-[1.4rem] sm:rounded-[2rem]">
                                             <div className="relative overflow-hidden rounded-[1.35rem] bg-[var(--surface)] p-2 sm:rounded-[1.95rem] sm:p-3">
                                                 <ImageReveal
                                                     src={project.image}

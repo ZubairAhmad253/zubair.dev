@@ -61,6 +61,7 @@ export default function BeforeAfter() {
                             </div>
 
                             <ImageReveal
+                                reveal
                                 src="/images/projects/before.png"
                                 alt="Before website redesign"
                                 className="aspect-video rounded-[1.6rem]"
@@ -111,6 +112,7 @@ export default function BeforeAfter() {
                                 </div>
 
                                 <ImageReveal
+                                    reveal
                                     src="/images/projects/after.png"
                                     alt="After website redesign"
                                     className="aspect-video rounded-[1.6rem]"

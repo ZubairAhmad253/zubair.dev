@@ -296,3 +296,44 @@ section {
     -webkit-text-fill-color: #7c3aed;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Motion details                                                      */
+/* ------------------------------------------------------------------ */
+
+/* Cursor spotlight on cards (position set by GSAPProvider) */
+[data-spotlight]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    320px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(139, 92, 246, 0.14),
+    rgba(34, 211, 238, 0.06) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+[data-spotlight]:hover::after {
+  opacity: 1;
+}
+
+/* Page fade when navigating between pages */
+.page-enter {
+  animation: pageEnter 0.55s ease both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

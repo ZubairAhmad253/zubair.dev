@@ -38,6 +38,7 @@ export default function Snapshot() {
                             <div
                                 key={stat.label}
                                 data-gsap-item
+                                data-spotlight
                                 className="group relative flex flex-col items-start gap-4 overflow-hidden rounded-[1.6rem] border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-glow)] sm:flex-row sm:items-center sm:px-6"
                             >
                                 <span className="rainbow-bg absolute inset-x-0 top-0 h-px opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -47,7 +48,7 @@ export default function Snapshot() {
                                 </span>
 
                                 <div>
-                                    <p className="font-heading text-xl font-black text-[var(--text)] sm:text-2xl">
+                                    <p data-gsap-count className="font-heading text-xl font-black text-[var(--text)] sm:text-2xl">
                                         {stat.value}
                                     </p>
                                     <p className="mt-0.5 text-xs text-[var(--muted)] sm:text-sm">{stat.label}</p>

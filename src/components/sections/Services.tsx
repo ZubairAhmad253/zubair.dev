@@ -32,7 +32,7 @@ export default function Services() {
                             >
                                 {/* PREMIUM BORDER */}
                                 <div className="rainbow-border rounded-[2rem]">
-                                    <div className="relative h-full rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-glow)] sm:p-7">
+                                    <div data-spotlight className="relative h-full rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-glow)] sm:p-7">
 
                                         {/* TOP */}
                                         <div className="flex items-center gap-4 sm:mb-6 sm:justify-between">

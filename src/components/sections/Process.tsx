@@ -70,7 +70,8 @@ export default function Process() {
                             <div
                                 key={step.number}
                                 data-gsap-item
-                                className="group rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-glow)]"
+                                data-spotlight
+                                className="group relative rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-glow)]"
                             >
                                 <div className="grid gap-5 md:grid-cols-[110px_1fr_auto] md:items-center">
                                     <div className="flex items-center gap-4">

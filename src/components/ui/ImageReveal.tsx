@@ -12,6 +12,8 @@ type ImageRevealProps = {
     imageClassName?: string;
     priority?: boolean;
     sizes?: string;
+    /** Wipe the image in when it scrolls into view */
+    reveal?: boolean;
 };
 
 export default function ImageReveal({
@@ -21,11 +23,13 @@ export default function ImageReveal({
     imageClassName,
     priority = false,
     sizes = "(max-width: 768px) 100vw, 50vw",
+    reveal = false,
 }: ImageRevealProps) {
     const [loaded, setLoaded] = useState(false);
 
     return (
         <div
+            data-gsap-clip={reveal || undefined}
             className={cn(
                 "group relative overflow-hidden border border-[var(--border)] bg-[var(--surface-soft)] shadow-[var(--shadow-soft)]",
                 className

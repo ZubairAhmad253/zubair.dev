@@ -16,6 +16,7 @@ export default function GlassCard({
 }: GlassCardProps) {
     return (
         <motion.div
+            data-spotlight
             whileHover={hover ? { y: -6, scale: 1.01 } : undefined}
             transition={{ duration: 0.28, ease: "easeOut" }}
             className={cn(

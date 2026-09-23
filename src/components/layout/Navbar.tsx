@@ -123,7 +123,7 @@ export default function Navbar() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className="rounded-full px-4 py-2 text-sm font-medium text-[var(--muted)] transition duration-300 hover:bg-[var(--surface-soft)] hover:text-[var(--text)]"
+                                    className="relative rounded-full px-4 py-2 text-sm font-medium text-[var(--muted)] transition duration-300 after:absolute after:inset-x-4 after:bottom-1 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[image:var(--rainbow)] after:transition-transform after:duration-300 hover:bg-[var(--surface-soft)] hover:text-[var(--text)] hover:after:scale-x-100"
                                 >
                                     {link.label}
                                 </Link>

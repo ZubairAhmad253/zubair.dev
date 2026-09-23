@@ -34,6 +34,10 @@ export default function GradientButton({
 
     const content = (
         <>
+            {variant === "primary" && (
+                <span className="pointer-events-none absolute inset-y-0 -left-2/3 w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[420%]" />
+            )}
+
             {variant === "secondary" && (
                 <span className="rainbow-bg pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
             )}

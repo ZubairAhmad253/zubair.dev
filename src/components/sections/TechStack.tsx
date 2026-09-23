@@ -61,6 +61,7 @@ export default function TechStack() {
                             <div
                                 key={tool.name}
                                 data-gsap-item
+                                data-spotlight
                                 style={{ "--brand": tool.color } as React.CSSProperties}
                                 className="group relative flex flex-col items-center justify-center gap-3 overflow-hidden rounded-[1.6rem] border border-[var(--border)] bg-[var(--surface)] px-2 py-5 text-center sm:px-3 sm:py-6 shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-glow)]"
                             >

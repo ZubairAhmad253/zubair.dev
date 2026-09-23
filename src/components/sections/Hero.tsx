@@ -17,6 +17,7 @@ import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import Container from "@/components/ui/Container";
 import GradientButton from "@/components/ui/GradientButton";
 import GlassCard from "@/components/ui/GlassCard";
+import { onSplashDone } from "@/lib/splash";
 
 const techStack = [
     "React",
@@ -52,6 +53,8 @@ const socials = [
     },
 ];
 
+const headline = "Full Stack Developer building".split(" ");
+
 const stats = [
     { label: "Focus", value: "Full Stack" },
     { label: "Style", value: "Premium UI" },
@@ -62,17 +65,61 @@ export default function Hero() {
     const heroRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        let stopWaiting = () => {};
+
         const ctx = gsap.context(() => {
-            gsap.from("[data-hero-item]", {
-                opacity: 0,
-                y: 40,
-                duration: 1,
-                ease: "power3.out",
-                stagger: 0.12,
-            });
+            const q = (name: string) => `[data-hero="${name}"]`;
+
+            // fromTo applies the start state immediately, so everything stays hidden
+            // under the splash screen until the timeline plays
+            const tl = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
+
+            tl.fromTo(q("badge"), { autoAlpha: 0, y: -16 }, { autoAlpha: 1, y: 0, duration: 0.6 })
+                .fromTo(
+                    q("word"),
+                    { autoAlpha: 0, y: 50, rotateX: -70, filter: "blur(8px)" },
+                    { autoAlpha: 1, y: 0, rotateX: 0, filter: "blur(0px)", duration: 0.8, stagger: 0.08 },
+                    "-=0.3"
+                )
+                .fromTo(
+                    q("accent"),
+                    { autoAlpha: 0, y: 40, scale: 0.92, filter: "blur(10px)" },
+                    { autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.9 },
+                    "-=0.5"
+                )
+                .fromTo(q("text"), { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.5")
+                .fromTo(
+                    `${q("buttons")} > *`,
+                    { autoAlpha: 0, y: 20, scale: 0.95 },
+                    { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.1, clearProps: "transform" },
+                    "-=0.4"
+                )
+                .fromTo(
+                    q("tag"),
+                    { autoAlpha: 0, y: 14, scale: 0.9 },
+                    { autoAlpha: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.04 },
+                    "-=0.35"
+                )
+                .fromTo(
+                    q("social"),
+                    { autoAlpha: 0, scale: 0.5 },
+                    { autoAlpha: 1, scale: 1, duration: 0.5, stagger: 0.06, ease: "back.out(2)", clearProps: "transform" },
+                    "-=0.3"
+                )
+                .fromTo(
+                    q("card"),
+                    { autoAlpha: 0, x: 80, rotateY: -18, scale: 0.94 },
+                    { autoAlpha: 1, x: 0, rotateY: 0, scale: 1, duration: 1.1, clearProps: "transform" },
+                    0.2
+                );
+
+            stopWaiting = onSplashDone(() => tl.play());
         }, heroRef);
 
-        return () => ctx.revert();
+        return () => {
+            stopWaiting();
+            ctx.revert();
+        };
     }, []);
 
     return (
@@ -85,23 +132,28 @@ export default function Hero() {
                 <div className="grid items-center gap-12 lg:min-h-[calc(100vh-9rem)] lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
                     <div className="text-center lg:text-left">
                         <div
-                            data-hero-item
+                            data-hero="badge"
                             className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-semibold text-[var(--muted)] shadow-[var(--shadow-soft)] lg:mx-0"
                         >
                             <span className="rainbow-bg h-2 w-2 rounded-full" />
                             Available for full stack work & projects
                         </div>
 
-                        <h1
-                            data-hero-item
-                            className="font-heading text-3xl font-black tracking-tight text-[var(--text)] sm:text-4xl lg:text-5xl xl:text-6xl"
-                        >
-                            Full Stack Developer building{" "}
-                            <span className="rainbow-text">premium web experiences.</span>
+                        <h1 className="font-heading text-3xl font-black tracking-tight text-[var(--text)] [perspective:800px] sm:text-4xl lg:text-5xl xl:text-6xl">
+                            {headline.map((word) => (
+                                <span key={word}>
+                                    <span data-hero="word" className="inline-block">
+                                        {word}
+                                    </span>{" "}
+                                </span>
+                            ))}
+                            <span data-hero="accent" className="rainbow-text inline-block">
+                                premium web experiences.
+                            </span>
                         </h1>
 
                         <p
-                            data-hero-item
+                            data-hero="text"
                             className="mx-auto mt-7 max-w-2xl text-base leading-8 text-[var(--muted)] sm:text-lg lg:mx-0"
                         >
                             I build modern, responsive web apps end to end — polished React and
@@ -110,7 +162,7 @@ export default function Hero() {
                         </p>
 
                         <div
-                            data-hero-item
+                            data-hero="buttons"
                             className="mt-9 flex flex-col items-center gap-4 sm:flex-row lg:items-start"
                         >
                             <GradientButton href="#projects">View Projects</GradientButton>
@@ -120,12 +172,12 @@ export default function Hero() {
                         </div>
 
                         <div
-                            data-hero-item
                             className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:mt-10 sm:gap-3 lg:justify-start"
                         >
                             {techStack.map((item) => (
                                 <span
                                     key={item}
+                                    data-hero="tag"
                                     className="rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 py-1.5 font-code text-[11px] text-[var(--muted)] shadow-[var(--shadow-soft)] sm:px-4 sm:py-2 sm:text-xs"
                                 >
                                     {item}
@@ -133,9 +185,7 @@ export default function Hero() {
                             ))}
                         </div>
 
-                        <div
-                            data-hero-item
-                            className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
+                        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
                         >
                             {socials.map((social) => {
                                 const Icon = social.icon;
@@ -147,6 +197,7 @@ export default function Hero() {
                                         target="_blank"
                                         rel="noreferrer"
                                         aria-label={social.label}
+                                        data-hero="social"
                                         whileHover={{ y: -4, scale: 1.08 }}
                                         whileTap={{ scale: 0.94 }}
                                         className="group relative grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] shadow-[var(--shadow-soft)] transition-all duration-300 hover:text-white hover:shadow-[var(--shadow-glow)]"
@@ -159,7 +210,7 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    <div data-hero-item className="relative mx-auto w-full max-w-lg">
+                    <div data-hero="card" className="relative mx-auto w-full max-w-lg [perspective:1200px]">
                         <motion.div
                             whileHover={{ rotateX: 4, rotateY: -4 }}
                             transition={{ duration: 0.3 }}
