@@ -45,6 +45,7 @@ export default function ProjectsPage() {
                                 >
                                     <div className="relative rounded-[1.55rem] bg-[var(--surface)] p-2">
                                         <ImageReveal
+                                            parallax
                                             src={project.image}
                                             alt={project.title}
                                             className="aspect-video rounded-[1.2rem]"

@@ -72,6 +72,7 @@ export default async function ProjectPage({ params }: Props) {
                     <div className="rainbow-border mx-auto max-w-6xl rounded-[2.4rem]" data-gsap-reveal>
                         <div className="rounded-[2.35rem] bg-[var(--surface)] p-3 shadow-[var(--shadow-glow)] sm:p-4">
                             <ImageReveal
+                                parallax
                                 src={project.image}
                                 alt={project.title}
                                 priority

@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 
 import CursorGlow from "@/components/ui/CursorGlow";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import BackToTop from "@/components/ui/BackToTop";
 
 import SplashScreen from "@/components/sections/SplashScreen";
 import Hero from "@/components/sections/Hero";
@@ -39,6 +40,7 @@ export default function HomePage() {
       </main>
 
       <Footer />
+      <BackToTop />
     </>
   );
 }

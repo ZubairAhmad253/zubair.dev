@@ -32,6 +32,7 @@ export default function FinalCTA() {
 
                             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                                 <GradientButton
+                                    magnetic
                                     href="https://mail.google.com/mail/?view=cm&fs=1&to=zubair.ahmad.mail49@gmail.com&su=Website%20Project%20Inquiry"
                                     icon={false}
                                 >
@@ -40,6 +41,7 @@ export default function FinalCTA() {
                                 </GradientButton>
 
                                 <GradientButton
+                                    magnetic
                                     href="https://wa.me/97470261822"
                                     variant="secondary"
                                     icon={false}
@@ -48,7 +50,7 @@ export default function FinalCTA() {
                                     WhatsApp
                                 </GradientButton>
 
-                                <GradientButton href="/contact" variant="secondary">
+                                <GradientButton magnetic href="/contact" variant="secondary">
                                     Project Form
                                 </GradientButton>
                             </div>

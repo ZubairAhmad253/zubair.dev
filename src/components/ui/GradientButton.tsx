@@ -8,6 +8,8 @@ type GradientButtonProps = {
     variant?: "primary" | "secondary" | "ghost";
     className?: string;
     icon?: boolean;
+    /** Lean toward the cursor on hover (desktop) */
+    magnetic?: boolean;
 };
 
 export default function GradientButton({
@@ -16,7 +18,10 @@ export default function GradientButton({
     variant = "primary",
     className,
     icon = true,
+    magnetic = false,
 }: GradientButtonProps) {
+    const magnet = magnetic ? { "data-magnetic": "" } : {};
+
     const classes = cn(
         "group relative inline-flex min-h-12 min-w-[164px] items-center justify-center overflow-hidden rounded-full px-6 py-3.5 text-center text-sm font-semibold leading-none transition-all duration-300 active:scale-[0.96] sm:px-7",
         "focus:outline-none focus:ring-2 focus:ring-cyan-400/40 focus:ring-offset-2 focus:ring-offset-[var(--background)]",
@@ -54,6 +59,7 @@ export default function GradientButton({
             <button
                 type="button"
                 className={classes}
+                {...magnet}
             >
                 {content}
             </button>
@@ -73,6 +79,7 @@ export default function GradientButton({
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noreferrer" : undefined}
                 className={classes}
+                {...magnet}
             >
                 {content}
             </a>
@@ -86,7 +93,7 @@ export default function GradientButton({
         .join(" ");
 
     return (
-        <div className={cn("inline-flex", widthClasses)}>
+        <div className={cn("inline-flex", widthClasses)} {...magnet}>
             <Link href={href} className={classes}>
                 {content}
             </Link>

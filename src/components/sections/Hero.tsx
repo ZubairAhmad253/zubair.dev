@@ -89,6 +89,7 @@ const tagsClass = "mt-5 hidden flex-wrap items-center justify-center gap-2 sm:fl
 
 export default function Hero() {
     const heroRef = useRef<HTMLDivElement>(null);
+    const frameRef = useRef<HTMLDivElement>(null);
     const pointerStart = useRef<number | null>(null);
 
     const [active, setActive] = useState(0);
@@ -171,6 +172,43 @@ export default function Hero() {
         };
     }, []);
 
+    // Mouse parallax: layers marked data-depth follow the cursor at different strengths
+    useEffect(() => {
+        const frame = frameRef.current;
+        if (!frame) return;
+        if (!window.matchMedia("(pointer: fine) and (prefers-reduced-motion: no-preference)").matches) return;
+
+        const layers = [...frame.querySelectorAll<HTMLElement>("[data-depth]")].map((layer) => ({
+            depth: Number(layer.dataset.depth) || 0,
+            x: gsap.quickTo(layer, "x", { duration: 0.8, ease: "power3.out" }),
+            y: gsap.quickTo(layer, "y", { duration: 0.8, ease: "power3.out" }),
+        }));
+
+        const onMove = (event: globalThis.PointerEvent) => {
+            const rect = frame.getBoundingClientRect();
+            const nx = (event.clientX - rect.left) / rect.width - 0.5;
+            const ny = (event.clientY - rect.top) / rect.height - 0.5;
+            layers.forEach((layer) => {
+                layer.x(nx * layer.depth);
+                layer.y(ny * layer.depth);
+            });
+        };
+
+        const onLeave = () =>
+            layers.forEach((layer) => {
+                layer.x(0);
+                layer.y(0);
+            });
+
+        frame.addEventListener("pointermove", onMove);
+        frame.addEventListener("pointerleave", onLeave);
+
+        return () => {
+            frame.removeEventListener("pointermove", onMove);
+            frame.removeEventListener("pointerleave", onLeave);
+        };
+    }, []);
+
     // Swipe on touch screens
     const onPointerDown = (event: PointerEvent) => {
         if (event.pointerType === "mouse") return;
@@ -217,9 +255,20 @@ export default function Hero() {
                     }}
                     className="flex flex-col"
                 >
-                    <div data-hero="frame" className="rainbow-border rounded-[2.5rem] shadow-[var(--shadow-glow)]">
+                    <div data-hero="frame" ref={frameRef} className="rainbow-border rounded-[2.5rem] shadow-[var(--shadow-glow)]">
                         <div className="relative overflow-hidden rounded-[2.45rem] bg-[var(--surface)]/85 backdrop-blur-xl">
                             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-cyan-400/5 via-fuchsia-500/5 to-orange-400/5" />
+
+                            {/* Floating light orbs — drift on their own and move against the cursor */}
+                            <span data-depth="-60" aria-hidden="true" className="pointer-events-none absolute -left-24 top-1/3">
+                                <span className="hero-orb block h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.18),transparent_65%)]" />
+                            </span>
+                            <span data-depth="-90" aria-hidden="true" className="pointer-events-none absolute -right-20 -top-16">
+                                <span className="hero-orb block h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(217,70,239,0.16),transparent_65%)] [animation-delay:-4s]" />
+                            </span>
+                            <span data-depth="-40" aria-hidden="true" className="pointer-events-none absolute -bottom-24 left-1/2">
+                                <span className="hero-orb block h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(251,146,60,0.14),transparent_65%)] [animation-delay:-8s]" />
+                            </span>
 
                             {/* Top bar: slide counter + arrows */}
                             <div className="relative flex items-center justify-between gap-4 border-b border-[var(--border)] px-5 py-3.5 sm:px-8">
@@ -291,7 +340,7 @@ export default function Hero() {
                                 </p>
 
                                 <div data-hero="buttons" className={buttonsClass}>
-                                    <GradientButton href="/projects">View Projects</GradientButton>
+                                    <GradientButton href="/projects" magnetic>View Projects</GradientButton>
                                     <GradientButton href="/contact" variant="secondary">
                                         Hire Me
                                     </GradientButton>
@@ -307,7 +356,8 @@ export default function Hero() {
                             </div>
 
                             {/* Compact developer card */}
-                            <div data-hero="card" className="relative mx-auto hidden w-full max-w-sm [perspective:1200px] lg:block">
+                            <div data-depth="28" className="relative mx-auto hidden w-full max-w-sm lg:block">
+                            <div data-hero="card" className="relative [perspective:1200px]">
                                 <div className="rainbow-border rounded-[2rem] transition-transform duration-500 hover:[transform:rotateX(4deg)_rotateY(-4deg)]">
                                     <div className="glass rounded-[1.95rem] p-3 sm:p-4">
                                         <div className="rounded-[1.6rem] border border-[var(--border)] bg-[var(--surface-soft)] p-4">
@@ -360,6 +410,7 @@ export default function Hero() {
                                     </div>
                                 </div>
                             </div>
+                            </div>
                         </div>
 
                         {/* ---------- Slide 2: experience ---------- */}
@@ -385,7 +436,7 @@ export default function Hero() {
                                 </p>
 
                                 <div className={buttonsClass}>
-                                    <GradientButton href="/about">View Experience</GradientButton>
+                                    <GradientButton href="/about" magnetic>View Experience</GradientButton>
                                     <GradientButton href="/projects/badrgo" variant="secondary">
                                         BadrGo Project
                                     </GradientButton>
@@ -398,7 +449,8 @@ export default function Hero() {
                                 </div>
                             </div>
 
-                            <div className="slide-wipe relative mx-auto hidden w-full max-w-md lg:block">
+                            <div data-depth="24" className="relative mx-auto hidden w-full max-w-md lg:block">
+                            <div className="slide-wipe">
                                 <div className="rainbow-border rounded-[2rem]">
                                     <div className="relative overflow-hidden rounded-[1.95rem] bg-[var(--surface)] p-2 sm:p-3">
                                         <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem]">
@@ -430,6 +482,7 @@ export default function Hero() {
                                     </div>
                                 </div>
                             </div>
+                            </div>
                         </div>
 
                         {/* ---------- Slide 3: projects ---------- */}
@@ -455,7 +508,7 @@ export default function Hero() {
                                 </p>
 
                                 <div className={buttonsClass}>
-                                    <GradientButton href="/projects">View All Projects</GradientButton>
+                                    <GradientButton href="/projects" magnetic>View All Projects</GradientButton>
                                     <GradientButton href="/contact" variant="secondary">
                                         Start a Project
                                     </GradientButton>
@@ -469,7 +522,8 @@ export default function Hero() {
                             </div>
 
                             {/* Screenshot collage */}
-                            <div className="slide-collage relative mx-auto hidden aspect-[5/4] w-full max-w-md lg:block">
+                            <div data-depth="32" className="relative mx-auto hidden w-full max-w-md lg:block">
+                            <div className="slide-collage relative aspect-[5/4] w-full">
                                 {showcase.map((project, index) => (
                                     <Link
                                         key={project.slug}
@@ -495,6 +549,7 @@ export default function Hero() {
                                         </span>
                                     </Link>
                                 ))}
+                            </div>
                             </div>
                         </div>
                     </div>

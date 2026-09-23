@@ -47,12 +47,24 @@ export default function Navbar() {
     const pathname = usePathname();
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [hidden, setHidden] = useState(false);
 
+    // Hide the navbar while scrolling down (more room to read), show it on the way back up
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 18);
+        let lastY = window.scrollY;
+
+        const onScroll = () => {
+            const y = window.scrollY;
+            setScrolled(y > 18);
+
+            if (Math.abs(y - lastY) > 6) {
+                setHidden(y > lastY && y > 320);
+                lastY = y;
+            }
+        };
         onScroll();
 
-        window.addEventListener("scroll", onScroll);
+        window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
@@ -76,7 +88,12 @@ export default function Navbar() {
     const close = () => setOpen(false);
 
     return (
-        <header className="sticky top-0 z-[80] w-full pt-3 sm:px-5 sm:pt-4 print:hidden">
+        <header
+            className={[
+                "sticky top-0 z-[80] w-full pt-3 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-5 sm:pt-4 print:hidden",
+                hidden && !open ? "-translate-y-[130%]" : "translate-y-0",
+            ].join(" ")}
+        >
             <AnimatePresence>
                 {open && (
                     <motion.button
@@ -137,7 +154,7 @@ export default function Navbar() {
                             <ThemeToggle />
 
                             <div className="hidden sm:block">
-                                <GradientButton href="/contact" icon={false}>
+                                <GradientButton href="/contact" icon={false} magnetic>
                                     Hire Me
                                 </GradientButton>
                             </div>

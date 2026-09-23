@@ -14,6 +14,8 @@ type ImageRevealProps = {
     sizes?: string;
     /** Wipe the image in when it scrolls into view */
     reveal?: boolean;
+    /** Image drifts inside its frame while scrolling */
+    parallax?: boolean;
 };
 
 export default function ImageReveal({
@@ -24,6 +26,7 @@ export default function ImageReveal({
     priority = false,
     sizes = "(max-width: 768px) 100vw, 50vw",
     reveal = false,
+    parallax = false,
 }: ImageRevealProps) {
     const [loaded, setLoaded] = useState(false);
 
@@ -42,6 +45,7 @@ export default function ImageReveal({
                 </div>
             )}
 
+            <div data-parallax-img={parallax || undefined} className="absolute inset-0">
             <motion.div
                 initial={{ opacity: 0, scale: 1.04 }}
                 animate={loaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.04 }}
@@ -61,6 +65,7 @@ export default function ImageReveal({
                     )}
                 />
             </motion.div>
+            </div>
 
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/18 via-transparent to-white/5 opacity-80" />
         </div>

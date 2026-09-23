@@ -85,6 +85,80 @@ export default function GSAPProvider({ children }: { children: ReactNode }) {
             });
         });
 
+        // Parallax — scrubbed to the scroll position. Desktop only: on phones it
+        // costs a lot of main-thread time for little visual gain.
+        const mm = gsap.matchMedia();
+        mm.add("(prefers-reduced-motion: no-preference) and (min-width: 1024px) and (pointer: fine)", () => {
+            // Elements drift at their own speed: data-parallax="-0.3" moves up faster than the page
+            gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((item) => {
+                const speed = Number(item.dataset.parallax) || 0;
+
+                if (item.hasAttribute("data-parallax-fixed")) {
+                    // Fixed background layers: move over the whole page height
+                    gsap.to(item, {
+                        y: () => speed * (document.documentElement.scrollHeight - window.innerHeight) * 0.35,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: document.documentElement,
+                            start: "top top",
+                            end: "bottom bottom",
+                            scrub: 0.6,
+                            invalidateOnRefresh: true,
+                        },
+                    });
+                    return;
+                }
+
+                gsap.fromTo(
+                    item,
+                    { y: () => -speed * 120 },
+                    {
+                        y: () => speed * 120,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: item,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: 0.6,
+                            invalidateOnRefresh: true,
+                        },
+                    }
+                );
+            });
+
+            // Images move inside their frame while the frame scrolls past — a window-like depth
+            gsap.utils.toArray<HTMLElement>("[data-parallax-img]").forEach((item) => {
+                gsap.fromTo(
+                    item,
+                    { yPercent: -7, scale: 1.16 },
+                    {
+                        yPercent: 7,
+                        scale: 1.16,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: item.parentElement ?? item,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: 0.6,
+                        },
+                    }
+                );
+            });
+
+            // Section headings: the small eyebrow label lifts slightly faster than the title
+            gsap.utils.toArray<HTMLElement>("[data-eyebrow]").forEach((item) => {
+                gsap.fromTo(
+                    item,
+                    { y: 18 },
+                    {
+                        y: -18,
+                        ease: "none",
+                        scrollTrigger: { trigger: item, start: "top bottom", end: "bottom top", scrub: 0.6 },
+                    }
+                );
+            });
+        });
+
         // Pause CSS animations (rainbow gradients etc.) in sections that are off screen
         const observer = new IntersectionObserver(
             (entries) => {
@@ -105,6 +179,7 @@ export default function GSAPProvider({ children }: { children: ReactNode }) {
             window.removeEventListener("load", refresh);
             window.clearTimeout(timer);
             observer.disconnect();
+            mm.revert();
             ctx.revert();
         };
     }, [pathname]);
@@ -124,6 +199,65 @@ export default function GSAPProvider({ children }: { children: ReactNode }) {
 
         document.addEventListener("pointermove", onMove, { passive: true });
         return () => document.removeEventListener("pointermove", onMove);
+    }, []);
+
+    // Magnetic buttons: elements with data-magnetic lean toward the cursor
+    useEffect(() => {
+        if (!window.matchMedia("(pointer: fine) and (prefers-reduced-motion: no-preference)").matches) return;
+
+        let current: HTMLElement | null = null;
+        let tilted: HTMLElement | null = null;
+
+        const release = () => {
+            if (current) {
+                gsap.to(current, { x: 0, y: 0, duration: 0.6, ease: "elastic.out(1, 0.4)" });
+                current = null;
+            }
+            if (tilted) {
+                gsap.to(tilted, { rotateX: 0, rotateY: 0, duration: 0.6, ease: "power3.out" });
+                tilted = null;
+            }
+        };
+
+        const onMove = (event: PointerEvent) => {
+            const el = event.target as Element | null;
+            const target = el?.closest<HTMLElement>("[data-magnetic]") ?? null;
+            const card = el?.closest<HTMLElement>("[data-tilt]") ?? null;
+
+            if (target !== current || card !== tilted) release();
+
+            // Magnetic: pull toward the cursor
+            if (target) {
+                current = target;
+                const rect = target.getBoundingClientRect();
+                const x = (event.clientX - (rect.left + rect.width / 2)) * 0.3;
+                const y = (event.clientY - (rect.top + rect.height / 2)) * 0.4;
+                gsap.to(target, { x, y, duration: 0.4, ease: "power3.out" });
+            }
+
+            // Tilt: the card leans in 3D toward the cursor
+            if (card) {
+                tilted = card;
+                const rect = card.getBoundingClientRect();
+                const px = (event.clientX - rect.left) / rect.width - 0.5;
+                const py = (event.clientY - rect.top) / rect.height - 0.5;
+                gsap.to(card, {
+                    rotateY: px * 10,
+                    rotateX: -py * 10,
+                    transformPerspective: 900,
+                    duration: 0.5,
+                    ease: "power3.out",
+                });
+            }
+        };
+
+        document.addEventListener("pointermove", onMove, { passive: true });
+        document.documentElement.addEventListener("pointerleave", release);
+
+        return () => {
+            document.removeEventListener("pointermove", onMove);
+            document.documentElement.removeEventListener("pointerleave", release);
+        };
     }, []);
 
     return <>{children}</>;

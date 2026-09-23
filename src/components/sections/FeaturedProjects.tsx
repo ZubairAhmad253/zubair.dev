@@ -33,11 +33,13 @@ export default function FeaturedProjects({ limit = 3 }: FeaturedProjectsProps) {
                             href={`/projects/${project.slug}`}
                             data-gsap-item
                             data-spotlight
+                            data-tilt
                             className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] p-3 shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-[var(--shadow-glow)]"
                         >
                             <div data-gsap-clip className="rainbow-border rounded-[1.6rem]">
                                 <div className="rounded-[1.55rem] bg-[var(--surface)] p-1.5">
                                     <ImageReveal
+                                        parallax
                                         src={project.image}
                                         alt={project.title}
                                         className="aspect-[16/10] rounded-[1.25rem]"

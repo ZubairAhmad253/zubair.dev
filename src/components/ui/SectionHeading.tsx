@@ -24,7 +24,7 @@ export default function SectionHeading({
             )}
         >
             {eyebrow && (
-                <p className="mb-4 font-code text-xs font-medium uppercase tracking-[0.35em] text-[var(--muted)]">
+                <p data-eyebrow className="mb-4 font-code text-xs font-medium uppercase tracking-[0.35em] text-[var(--muted)]">
                     {eyebrow}
                 </p>
             )}

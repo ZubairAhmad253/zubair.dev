@@ -59,6 +59,7 @@ export default function BeforeAfter() {
                             </div>
 
                             <ImageReveal
+                                parallax
                                 reveal
                                 src="/images/projects/before.webp"
                                 alt="Before website redesign"
@@ -110,6 +111,7 @@ export default function BeforeAfter() {
                                 </div>
 
                                 <ImageReveal
+                                    parallax
                                     reveal
                                     src="/images/projects/after.webp"
                                     alt="After website redesign"

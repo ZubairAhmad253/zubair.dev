@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ThemeProvider from "@/components/providers/ThemeProvider";
 import GSAPProvider from "@/components/providers/GSAPProvider";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import ParallaxBackground from "@/components/ui/ParallaxBackground";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -60,10 +62,13 @@ export default function RootLayout({
         className={`${jakarta.variable} ${sora.variable} ${varino.variable} ${jetBrainsMono.variable}`}
       >
         <ThemeProvider>
-          <GSAPProvider>
-            <div className="site-background" />
-            {children}
-          </GSAPProvider>
+          <SmoothScrollProvider>
+            <GSAPProvider>
+              <div className="site-background" />
+              <ParallaxBackground />
+              {children}
+            </GSAPProvider>
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>

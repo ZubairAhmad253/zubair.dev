@@ -445,3 +445,53 @@ section {
 
 [data-active="true"] .slide-collage > :nth-child(2) { transition-delay: 0.12s; }
 [data-active="true"] .slide-collage > :nth-child(3) { transition-delay: 0.24s; }
+
+/* ------------------------------------------------------------------ */
+/* Motion & UX polish                                                  */
+/* ------------------------------------------------------------------ */
+
+/* Hero light orbs drift slowly on their own */
+.hero-orb {
+  animation: orbFloat 14s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate3d(30px, -24px, 0) scale(1.08);
+  }
+
+  66% {
+    transform: translate3d(-24px, 18px, 0) scale(0.94);
+  }
+}
+
+/* Clear keyboard focus ring everywhere (mouse clicks don't show it) */
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+/* 3D tilt cards keep their children crisp */
+[data-tilt] {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb {
+    animation: none !important;
+  }
+
+  .hero-slide,
+  .slide-stagger > *,
+  .slide-collage > *,
+  .slide-wipe {
+    transition-duration: 0.01ms !important;
+  }
+}
