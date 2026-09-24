@@ -50,16 +50,20 @@ export default function FeaturedProjects({ limit = 3 }: FeaturedProjectsProps) {
                             </div>
 
                             <div className="flex flex-1 items-end justify-between gap-4 px-3 pb-3 pt-5">
-                                <div>
-                                    <p className="font-code text-[11px] uppercase tracking-[0.2em] text-[var(--muted)]">
-                                        {project.category}
-                                    </p>
-                                    <h3 className="mt-2 font-heading text-lg font-bold text-[var(--text)]">
+                                <div className="min-w-0">
+                                    <h3 className="font-heading text-lg font-bold text-[var(--text)]">
                                         {project.title.split(" — ")[0]}
                                     </h3>
-                                    <p className="mt-1 text-sm text-[var(--muted)]">
-                                        {project.title.split(" — ")[1]}
-                                    </p>
+                                    <div className="mt-3 flex flex-wrap gap-1.5">
+                                        {project.tech.slice(0, 4).map((tech) => (
+                                            <span
+                                                key={tech}
+                                                className="rounded-full border border-[var(--border)] bg-[var(--surface-soft)] px-2.5 py-1 font-code text-[10px] text-[var(--muted)]"
+                                            >
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
 
                                 <span className="rainbow-bg grid h-11 w-11 shrink-0 place-items-center rounded-2xl shadow-[var(--shadow-glow)] transition-transform duration-300 group-hover:rotate-45">

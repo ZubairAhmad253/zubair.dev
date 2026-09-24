@@ -120,6 +120,31 @@ export const projects: ProjectData[] = [
     liveUrl: "https://yel-frontend-main.vercel.app",
   },
   {
+    slug: "photo-to-video",
+    title: "Photo to Video — AI Video Maker",
+    category: "AI / Web App",
+    image: "/images/projects/photo-to-video.webp",
+    description:
+      "An AI web app that turns a photo and a few lines of text into a narrated video — each sentence becomes a scene with voice-over, moving shots and captions.",
+    problem:
+      "Making a short promo, greeting or story video usually needs editing software and time most people don't have.",
+    solution:
+      "Built a chat-style app: attach a photo, write your text and press send. Classic mode adds zoom, pan and captions per sentence; AI story mode animates the photo itself.",
+    overview:
+      "Photo to Video is a simple way to make short videos from a single image. The interface works like a chat: pick a format, choose captions and voice, and send. The app splits the text into scenes, adds an offline voice-over and renders the video. The live site is a showcase copy with example videos — generation runs on a PC with the app's server.",
+    features: [
+      "Chat-style interface: photo + text + send",
+      "Classic mode: zoom, pan and captions for every sentence",
+      "AI story mode: the photo itself comes to life",
+      "Offline voice-over that reads your text",
+      "Formats: 9:16 Reel, 16:9 and 1:1, up to 720p",
+      "Caption styles and ready-made story templates",
+      "Recent videos history, demo recording, light / dark mode",
+    ],
+    tech: ["JavaScript", "HTML", "CSS", "AI Video", "Text-to-Speech"],
+    liveUrl: "https://text-to-video-pied.vercel.app",
+  },
+  {
     slug: "nexora",
     title: "Nexora — Premium Portfolio Template",
     category: "Portfolio Template",

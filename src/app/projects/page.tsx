@@ -15,7 +15,7 @@ import { projects } from "@/data/projects";
 export const metadata: Metadata = pageMeta({
     title: "Projects",
     description:
-        "Selected projects by Zubair Ahmad: Alright Tech, BadrGo, Bloom Cypher, Y.E.L Landscaping and Nexora — company websites, platforms and templates, with case studies.",
+        "Selected projects by Zubair Ahmad: Alright Tech, BadrGo, Bloom Cypher, Y.E.L Landscaping, Photo to Video and Nexora — company websites, platforms and templates, with case studies.",
     path: "/projects",
 });
 
@@ -65,19 +65,11 @@ export default function ProjectsPage() {
                                 </Link>
 
                                 <div className="flex flex-1 flex-col p-4 sm:p-5">
-                                    <p className="font-code text-xs uppercase tracking-[0.25em] text-[var(--muted)]">
-                                        {project.category}
-                                    </p>
-
-                                    <h2 className="mt-3 font-heading text-xl font-bold text-[var(--text)]">
-                                        {project.title}
+                                    <h2 className="font-heading text-xl font-bold text-[var(--text)]">
+                                        {project.title.split(" — ")[0]}
                                     </h2>
 
-                                    <p className="mt-3 flex-1 text-sm leading-7 text-[var(--muted)]">
-                                        {project.description}
-                                    </p>
-
-                                    <div className="mt-5 flex flex-wrap gap-2">
+                                    <div className="mt-4 flex flex-1 flex-wrap content-start gap-2">
                                         {project.tech.map((tech) => (
                                             <span
                                                 key={tech}
