@@ -172,29 +172,6 @@ export const projects: ProjectData[] = [
     githubUrl: "https://github.com/ZubairAhmad253/nexora-portfolio-template",
   },
   {
-    slug: "avatare-ecommerce",
-    title: "Avatare E‑commerce — Headless Storefront",
-    category: "Ecommerce / SaaS",
-    image: "/images/projects/avatare-ecommerce.webp",
-    description:
-      "A headless ecommerce storefront and marketing site for Avatare's online shop and partner integrations.",
-    problem:
-      "Avatare needed a performant, brand-forward storefront that highlights products and integrates with their existing headless commerce APIs.",
-    solution:
-      "Built a fast, responsive Next.js storefront with clear product pages, promotional sections, and seamless checkout integration.",
-    overview:
-      "The Avatare ecommerce project showcases products, bundles and partnerships while providing a smooth shopping experience backed by a headless commerce platform.",
-    features: [
-      "Product catalog with category filters",
-      "Promotional hero and featured bundles",
-      "Partner integrations and trust signals",
-      "Fast image loading and responsive layout",
-      "SEO-friendly product pages",
-    ],
-    tech: ["Next.js", "React", "Headless CMS", "Serverless APIs"],
-    liveUrl: "https://ecommerce.avatare.com/",
-  },
-  {
     slug: "avatare-marketing",
     title: "AVATARé — Vertical SaaS Fintech & Insurtech Platform",
     category: "Fintech / Insurtech · WordPress",
