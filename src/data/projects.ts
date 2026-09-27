@@ -171,6 +171,73 @@ export const projects: ProjectData[] = [
     liveUrl: "https://nexora-portfolio-template.vercel.app",
     githubUrl: "https://github.com/ZubairAhmad253/nexora-portfolio-template",
   },
+  {
+    slug: "avatare-ecommerce",
+    title: "Avatare E‑commerce — Headless Storefront",
+    category: "Ecommerce / SaaS",
+    image: "/images/projects/avatare-ecommerce.webp",
+    description:
+      "A headless ecommerce storefront and marketing site for Avatare's online shop and partner integrations.",
+    problem:
+      "Avatare needed a performant, brand-forward storefront that highlights products and integrates with their existing headless commerce APIs.",
+    solution:
+      "Built a fast, responsive Next.js storefront with clear product pages, promotional sections, and seamless checkout integration.",
+    overview:
+      "The Avatare ecommerce project showcases products, bundles and partnerships while providing a smooth shopping experience backed by a headless commerce platform.",
+    features: [
+      "Product catalog with category filters",
+      "Promotional hero and featured bundles",
+      "Partner integrations and trust signals",
+      "Fast image loading and responsive layout",
+      "SEO-friendly product pages",
+    ],
+    tech: ["Next.js", "React", "Headless CMS", "Serverless APIs"],
+    liveUrl: "https://ecommerce.avatare.com/",
+  },
+  {
+    slug: "avatare-marketing",
+    title: "Avatare — Marketing & Product Site",
+    category: "Marketing / Brand",
+    image: "/images/projects/avatare-marketing.webp",
+    description:
+      "The public-facing brand and product website for Avatare including product pages, investor and partner information.",
+    problem:
+      "Avatare required a clear, trust-building marketing site to present product value and drive demo requests and partnerships.",
+    solution:
+      "Designed and developed a polished marketing site with clear CTAs, case highlights, and resource pages to convert visitors into leads.",
+    overview:
+      "Avatare's marketing site communicates product benefits, integrations and company story while capturing leads for partnerships and sales.",
+    features: [
+      "Clear product messaging and hero section",
+      "Case highlights and customer logos",
+      "Contact / demo request forms",
+      "Responsive and accessible design",
+    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://avatare.com/",
+  },
+  {
+    slug: "companion-animal-health",
+    title: "Companion Animal Health — Veterinary Services Site",
+    category: "Healthcare / Veterinary",
+    image: "/images/projects/companion-animal-health.webp",
+    description:
+      "A website for Companion Animal Health providing veterinary services, pet care resources and contact booking.",
+    problem:
+      "The clinic needed a modern site that explains services, enables appointment requests, and offers trusted pet care resources.",
+    solution:
+      "Built a patient-friendly website with service pages, online booking links, resources and clear contact options.",
+    overview:
+      "Companion Animal Health's site helps pet owners find services, book appointments and access trustworthy pet care information.",
+    features: [
+      "Service pages and pricing overview",
+      "Appointment request form",
+      "Pet care resources and FAQs",
+      "Clinic contact and location details",
+    ],
+    tech: ["Next.js", "React", "Form integration"],
+    liveUrl: "https://companionanimalhealth.com/",
+  },
 ];
 
 export type Project = ProjectData;
