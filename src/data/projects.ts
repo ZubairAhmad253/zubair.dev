@@ -222,6 +222,60 @@ export const projects: ProjectData[] = [
     tech: ["HubSpot CMS", "HubSpot Marketing Hub", "jQuery"],
     liveUrl: "https://companionanimalhealth.com/",
   },
+  {
+    slug: "kitwise-resume",
+    title: "Kitwise Resume — Free Online Resume Builder",
+    category: "Web App / Productivity",
+    image: "/images/projects/kitwise-resume.webp",
+    description:
+      "A free resume builder with 20 field-specific templates, CV import and print-ready PDF export — no sign-up, no watermark, and everything stays in the browser.",
+    problem:
+      "Most resume builders push sign-ups, add watermarks or lock the PDF download behind a paywall.",
+    solution:
+      "Built a private, client-side builder: pick a template for your field, fill in your details with a live page preview, and download an ATS-friendly PDF. Existing CVs can be uploaded to fill the editor automatically.",
+    overview:
+      "Kitwise Resume helps people create a modern resume in minutes. Templates are designed for how recruiters in each field read a resume — software, healthcare, finance, logistics, design and more. Your resume and any imported file never leave your own browser.",
+    features: [
+      "20 templates for different professions",
+      "Upload a PDF or Word CV to fill the editor",
+      "Live preview with clean page breaks",
+      "PDF export in A4, US Letter or Legal",
+      "Selectable text that works with applicant tracking systems",
+      "No sign-up and no watermark",
+      "Private by design — data stays in the browser",
+      "Example resumes, advice and dark / light mode",
+    ],
+    tech: ["Astro", "React", "TypeScript", "Tailwind CSS", "pdf.js", "Tesseract.js", "Vercel"],
+    liveUrl: "https://kitwise-resume.vercel.app/",
+    githubUrl: "https://github.com/ZubairAhmad253/kitwise-resume",
+  },
+  {
+    slug: "kitwise-calc",
+    title: "Kitwise Calc — All-in-One Online Calculators",
+    category: "Web App / Utilities",
+    image: "/images/projects/kitwise-calc.webp",
+    description:
+      "A free calculator platform with 111+ calculators for finance, math, health, conversions, dates and everyday life — instant answers with a clear explanation of each result.",
+    problem:
+      "People need quick, trustworthy calculations, but most calculator sites are cluttered, force sign-ups and only show the final number.",
+    solution:
+      "Built one fast, clean home for 111+ calculators across seven categories, with results that update as you type, step-by-step breakdowns, and instant search with Ctrl K.",
+    overview:
+      "Kitwise Calc covers finance (loans, mortgages, EMI, investing), math, health and fitness, unit conversion, date and time, education and everyday home calculations. Every calculator shows how the answer is worked out, and an accompanying blog explains the ideas behind them.",
+    features: [
+      "111+ calculators in 7 categories",
+      "Instant results as you type",
+      "Step-by-step explanation of every answer",
+      "Global search with Ctrl K shortcut",
+      "Popular calculators: mortgage, loan, EMI, amortization, compound interest",
+      "Blog with educational articles",
+      "No sign-up needed",
+      "Dark / light mode and responsive layout",
+    ],
+    tech: ["Astro", "React", "TypeScript", "Tailwind CSS", "MDX", "Vercel"],
+    liveUrl: "https://all-in-one-calculator-sandy.vercel.app/",
+    githubUrl: "https://github.com/ZubairAhmad253/all-in-one-calculator",
+  },
 ];
 
 export type Project = ProjectData;
