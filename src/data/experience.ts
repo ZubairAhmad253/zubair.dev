@@ -4,7 +4,7 @@ export const experience = [
     company: "Badr Technology LLC",
     product: "BadrGo — Ride-Hailing Platform",
     location: "Doha, Qatar",
-    period: "Present",
+    period: "Apr 2026 – Present",
     current: true,
     description:
       "Supporting the BadrGo ride-hailing platform while building full stack solutions for the company — from backend services to clean, responsive interfaces.",
