@@ -277,17 +277,48 @@ section {
     --border: rgba(16, 24, 40, 0.15);
   }
 
+  /* Space at the top and bottom of every page. The first page starts with the header band,
+     which runs to the top edge; the side space comes from the document's own padding.
+     A margin box also stops the browser from printing its own URL / date header and footer. */
   @page {
-    margin: 0;
+    size: A4;
+    margin: 12mm 0 14mm;
+    background: #ffffff;
+
+    @bottom-center {
+      content: "Zubair Ahmad  |  Full Stack Software Engineer  |  Page " counter(page) " of " counter(pages);
+      font-family: sans-serif;
+      font-size: 7.5pt;
+      color: #94a3b8;
+    }
   }
 
-  .cv-sheet {
-    padding: 14mm !important;
+  @page :first {
+    margin-top: 0;
   }
 
+  .cv-document {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cv-document a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Never split an entry (or a heading from its first entry) across two pages */
+  .cv-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Paint the page (margins included) white, even when the dark theme's color-scheme is active */
   html,
   body {
     background: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .site-background,
@@ -295,11 +326,6 @@ section {
     display: none;
   }
 
-  .cv-sheet .rainbow-text {
-    background: none;
-    color: #7c3aed;
-    -webkit-text-fill-color: #7c3aed;
-  }
 }
 
 /* ------------------------------------------------------------------ */

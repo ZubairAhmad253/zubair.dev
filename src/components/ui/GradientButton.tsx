@@ -10,6 +10,8 @@ type GradientButtonProps = {
     icon?: boolean;
     /** Lean toward the cursor on hover (desktop) */
     magnetic?: boolean;
+    /** Save the linked file (e.g. the CV PDF) instead of opening it */
+    download?: boolean;
 };
 
 export default function GradientButton({
@@ -19,6 +21,7 @@ export default function GradientButton({
     className,
     icon = true,
     magnetic = false,
+    download = false,
 }: GradientButtonProps) {
     const magnet = magnetic ? { "data-magnetic": "" } : {};
 
@@ -63,6 +66,14 @@ export default function GradientButton({
             >
                 {content}
             </button>
+        );
+    }
+
+    if (download) {
+        return (
+            <a href={href} download className={classes} {...magnet}>
+                {content}
+            </a>
         );
     }
 
